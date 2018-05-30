@@ -1,12 +1,13 @@
 const express = require('express')
 const handlebars = require('express-handlebars')
 const request = require('request')
+const urljoin = require('url-join')
 
 const app = express()
 
 app.use(express.static('public'))
 
-app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
@@ -20,21 +21,40 @@ app.get('/search', (req, res) => {
   })
 })
 
+app.get('/rating/:certificateHash', (req, res) => {
+  const { certificateHash } = req.params
+  getResult(certificateHash)
+})
+
 // -- API CALLS
 
 const EPC_BASE_URL = 'https://epc.opendatacommunities.org/api/v1/non-domestic/'
-
-function doSearch (postcode, callback) {
-  const url = EPC_BASE_URL + 'search'
-  const qs = { postcode }
-  const auth = {
+const commonOptions = {
+  auth: {
     'username': 'jamie.humphries@softwire.com',
     'password': '0a04476abe309a2c2f0b2af0ca05260ed41cb309'
-  }
-  const headers = { 'Accept': 'application/json' }
-  request.get({ url, qs, auth, headers, json: true }, (e, r, data) => {
-    callback(data.rows.length)
+  },
+  headers: { 'Accept': 'application/json' },
+  json: true
+}
+
+
+function doSearch(postcode, callback) {
+  const url = urljoin(EPC_BASE_URL, 'search')
+  const qs = { postcode }
+  const options = Object.assign({ url, qs }, commonOptions)
+  request.get(options, (e, r, data) => {
+    callback(data.rows)
   })
+}
+
+function getResult(certificateHash, callback) {
+  const url = urljoin(EPC_BASE_URL, 'certificate', certificateHash)
+  const options = Object.assign({ url }, commonOptions)
+  request.get(options, (e, r, data) => {
+    callback(data.rows[0])
+  })
+
 }
 
 // ---
