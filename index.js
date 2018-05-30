@@ -1,6 +1,5 @@
 const express = require('express')
 const mustacheExpress = require('mustache-express')
-const bodyParser = require('body-parser')
 const path = require('path')
 
 const app = express()
@@ -8,15 +7,14 @@ const app = express()
 app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
 app.set('views', path.join(__dirname, '/views'))
-app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
   res.render('index.html')
 })
 
-app.post('/search', (req, res) => {
-  res.render('results.html', {
-    'postcode': req.body.postcode
+app.get('/search', (req, res) => {
+  res.render('search.html', {
+    postcode: req.query.postcode
   })
 })
 
