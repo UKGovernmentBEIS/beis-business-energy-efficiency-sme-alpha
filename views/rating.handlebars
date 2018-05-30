@@ -1,0 +1,28 @@
+<div class="row">
+    <p class="address">
+        Address: {{property.address}}
+    </p>
+    <p class="rating">
+        Rating: {{property.asset-rating-band}}
+    </p>
+    <table>
+        <tr>
+            <th>Payback type</th>
+            <th>CO2 Impact</th>
+            <th>Recommendation</th>
+        </tr>
+        {{#each recommendations}}
+        <tr>
+            <td>
+                {{PAYBACK_TYPE}}
+            </td>
+            <td>
+                {{CO2_IMPACT}}
+            </td>
+            <td>
+                {{RECOMMENDATION}}
+            </td>
+        </tr>
+        {{/each}}
+    </table>
+</div>

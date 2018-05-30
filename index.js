@@ -16,14 +16,16 @@ app.get('/', (req, res) => {
 
 app.get('/search', (req, res) => {
   const { postcode } = req.query
-  doSearch(postcode, rows => {
-    res.render('search', { postcode, rows })
+  doSearch(postcode, properties => {
+    res.render('search', { postcode, properties })
   })
 })
 
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
-  getResult(certificateHash)
+  getResult(certificateHash, (property, recommendations) => {
+    res.render('rating', { certificateHash, property, recommendations })
+  })
 })
 
 // -- API CALLS
@@ -52,9 +54,23 @@ function getResult(certificateHash, callback) {
   const url = urljoin(EPC_BASE_URL, 'certificate', certificateHash)
   const options = Object.assign({ url }, commonOptions)
   request.get(options, (e, r, data) => {
-    callback(data.rows[0])
+    const row = data.rows[0]
+    const lmkKey = row['lmk-key']
+    getRecommendations(lmkKey, recommendations => {
+      callback(row, recommendations)
+    })
   })
+}
 
+function getRecommendations(lmkKey, callback) {
+  // TODO: Remove this overwrite with example LMK key.
+  lmkKey = '100000220150312070330'
+
+  const url = urljoin(EPC_BASE_URL, 'recommendations', lmkKey)
+  const options = Object.assign({ url }, commonOptions)
+  request.get(options, (e, r, data) => {
+    callback(data.rows)
+  })
 }
 
 // ---
