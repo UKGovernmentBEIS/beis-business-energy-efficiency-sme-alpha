@@ -5,7 +5,6 @@ const path = require('path')
 
 const app = express()
 
-// Register '.mustache' extension with The Mustache Express
 app.engine('html', mustacheExpress())
 app.set('view engine', 'html')
 app.set('views', path.join(__dirname, '/views'))
