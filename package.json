@@ -2,5 +2,9 @@
   "name": "beis-sme-alpha",
   "version": "1.0.0",
   "main": "index.js",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "express": "^4.16.3",
+    "mustache-express": "^1.2.6"
+  }
 }
