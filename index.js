@@ -1,19 +1,19 @@
 const express = require('express')
-const mustacheExpress = require('mustache-express')
-const path = require('path')
+const handlebars = require('express-handlebars')
 
 const app = express()
 
-app.engine('html', mustacheExpress())
-app.set('view engine', 'html')
-app.set('views', path.join(__dirname, '/views'))
+app.use(express.static('public'))
+
+app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-  res.render('index.html')
+  res.render('search')
 })
 
 app.get('/search', (req, res) => {
-  res.render('search.html', {
+  res.render('search', {
     postcode: req.query.postcode
   })
 })

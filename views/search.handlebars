@@ -1,0 +1,12 @@
+<div class="row">
+  <form action="/search">
+    <div class="form-group">
+      <label for="postcode">Postcode</label>
+      <input class="form-control" type="text" name="postcode" value="{{postcode}}">
+    </div>
+    <button class="btn btn-primary" type="submit">Search</button>
+  </form>
+</div>
+<div class="row search-results">
+  {{postcode}}
+</div>

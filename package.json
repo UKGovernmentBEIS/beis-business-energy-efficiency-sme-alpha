@@ -5,10 +5,10 @@
   "private": true,
   "dependencies": {
     "express": "^4.16.3",
-    "mustache-express": "^1.2.6"
+    "express-handlebars": "^3.0.0"
   },
   "scripts": {
-    "debug": "nodemon --inspect -e html,js ./index.js"
+    "start": "nodemon --inspect -e handlebars,js ./index.js"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
