@@ -1,18 +1,29 @@
-<div class="row">
-  <form action="/search">
-    <div class="form-group">
-      <label for="postcode">Postcode</label>
-      <input class="form-control" type="text" name="postcode" value="{{postcode}}">
+<div class="page search-page">
+  <div class="page-header">
+    <h1 class="page-title">Energy Advice Service</h1>
+  </div>
+  <div class="page-content">
+    <div class="row">
+      <div class="subheading">Enter your postcode below to receive your energy recommendations</div>
+      <form class="form-inline" action="/search">
+        <div class="form-group">
+          <label for="postcode">Postcode</label>
+          <input class="form-control" type="text" name="postcode" value="{{postcode}}">
+        </div>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
     </div>
-    <button class="btn btn-primary" type="submit">Search</button>
-  </form>
-</div>
-<div class="row search-results">
-  <ul>
-  {{#each properties}}
-    <li>
-      <a href="/rating/{{certificate-hash}}">{{address}}</a>
-    </li>
-  {{/each}}
-  </ul>
+    <div class="row search-results">
+      {{#postcode}}
+      <div class="subheading">Results</div>
+      {{/postcode}} 
+      
+      {{#each properties}}
+      <div class="property-link">
+        <a href="/rating/{{certificate-hash}}">{{address}}</a>
+      </div>
+      {{/each}}
+
+    </div>
+  </div>
 </div>

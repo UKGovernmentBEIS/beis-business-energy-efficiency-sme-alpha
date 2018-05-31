@@ -4,6 +4,7 @@ const request = require('request')
 const urljoin = require('url-join')
 
 const odcApiClient = require('./odcApiClient')
+const ratingColorHelper = require('./ratingColorHelper')
 
 const app = express()
 
@@ -26,6 +27,7 @@ app.get('/search', (req, res) => {
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificate(certificateHash, (property, recommendations) => {
+    property.color = ratingColorHelper.getColor(property)
     res.render('rating', { certificateHash, property, recommendations })
   })
 })
