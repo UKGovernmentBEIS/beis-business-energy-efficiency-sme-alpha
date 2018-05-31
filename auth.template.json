@@ -1,0 +1,12 @@
+{
+  "zero-to-hero": {
+    "1": "Register for an EPC Open Data account: https://epc.opendatacommunities.org/login",
+    "2": "Copy this file to auth.json (remove '.template' from the file name). This is ignored by Git.",
+    "3": "Replace the 'username' property in auth.json with the email you used to register.",
+    "4": "Replace the 'password' property in auth.json with the API key that you will be emailed after registering.",
+    "5": "Delete this 'zero-to-hero' property from auth.json."
+  },
+
+  "username": "your.email@example.com",
+  "password": "yourapikey"
+}
