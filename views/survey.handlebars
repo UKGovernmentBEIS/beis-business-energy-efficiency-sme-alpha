@@ -1,0 +1,39 @@
+<form action="/measures">
+  <label for="sector">
+    <strong>Organisation size</strong>
+  </label>
+  <div class="form-group">
+    {{#each sizes}}
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="size-{{value}}" name="size" class="custom-control-input" value="{{value}}">
+        <label class="custom-control-label" for="size-{{value}}">{{label}}</label>
+      </div>
+    {{/each}}
+  </div>
+  <label for="sector">
+    <strong>Tenure status</strong>
+  </label>
+  <div class="form-group">
+    {{#each tenures}}
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="tenure-{{value}}" name="tenure" class="custom-control-input" value="{{value}}">
+        <label class="custom-control-label" for="tenure-{{value}}">{{label}}</label>
+      </div>
+    {{/each}}
+  </div>
+  <label>
+    <strong>Sector</strong>
+  </label>
+  <div class="form-group">
+    {{#each sectors}}
+        <div><small>{{name}}</small></div>
+        {{#each subsectors}}
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="subsector-{{id}}" name="subsector" class="custom-control-input" value="{{name}}">
+            <label class="custom-control-label" for="subsector-{{id}}">{{name}}</label>
+          </div>
+        {{/each}}
+    {{/each}}
+  </div>
+  <button class="btn btn-primary" type="submit">Search</button>
+</form>

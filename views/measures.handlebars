@@ -1,0 +1,14 @@
+{{#each ranges}}
+  {{#if measures.length}}
+    <h3>{{label}}</h3>
+    <table>
+      {{#each measures}}
+        <tr style="width: 80vw">
+          <td>{{group}}</td>
+          <td>Start saving in {{payback}} years</td>
+          <td>Initial cost is {{cost}}</td>
+        </tr>
+      {{/each}}
+    </table>
+  {{/if}}
+{{/each}}
