@@ -1,28 +1,36 @@
-<div class="row">
-    <p class="address">
-        Address: {{property.address}}
-    </p>
-    <p class="rating">
-        Rating: {{property.asset-rating-band}}
-    </p>
-    <table>
-        <tr>
-            <th>Payback type</th>
-            <th>CO2 Impact</th>
-            <th>Recommendation</th>
-        </tr>
-        {{#each recommendations}}
-        <tr>
-            <td>
-                {{PAYBACK_TYPE}}
-            </td>
-            <td>
-                {{CO2_IMPACT}}
-            </td>
-            <td>
-                {{RECOMMENDATION}}
-            </td>
-        </tr>
-        {{/each}}
-    </table>
+<div class="page results-page">
+    <div class="page-header">
+        <h1 class="page-title">Energy Recommendations</h1>
+    </div>
+    <div class="page-content">
+        <div class="row address-row">
+            <div class="subheading">
+                {{property.address}}
+            </div>
+            <div class="rating {{property.color}}">
+                {{property.asset-rating-band}}
+            </div>
+        </div>
+        <table class="table table-hover">
+            <tr>
+                <th class="col-sm-2" scope="col">Payback type</th>
+                <th class="col-sm-2" scope="col">CO2 Impact</th>
+                <th scope="col">Recommendation</th>
+            </tr>
+            {{#each recommendations}}
+            <tr>
+                <td>
+                    {{PAYBACK_TYPE}}
+                </td>
+                <td>
+                    {{CO2_IMPACT}}
+                </td>
+                <td>
+                    {{RECOMMENDATION}}
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>
 </div>
