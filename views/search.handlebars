@@ -8,5 +8,7 @@
   </form>
 </div>
 <div class="row search-results">
-  There were {{rows}} results.
+  <ul>
+  {{#each rows}}<li><a href="/rating/{{certificate-hash}}">{{address}}</a></li>{{/each}}
+  </ul>
 </div>
