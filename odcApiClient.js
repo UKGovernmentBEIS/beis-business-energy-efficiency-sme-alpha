@@ -11,23 +11,27 @@ const commonOptions = Object.freeze({
 })
 
 class OdcApiClient {
-  search (postcode, callback) {
+  search (postcode) {
     const url = urljoin(EPC_BASE_URL, 'search')
     const qs = { postcode }
     const options = Object.assign({ url, qs }, commonOptions)
-    request.get(options, (e, r, data) => {
-      callback(data.rows)
+    return new Promise((resolve, reject) => {
+      request.get(options, (e, r, data) => {
+        resolve(data.rows)
+      })
     })
   }
 
-  getCertificate (certificateHash, callback) {
+  getCertificate (certificateHash) {
     const url = urljoin(EPC_BASE_URL, 'certificate', certificateHash)
     const options = Object.assign({ url }, commonOptions)
-    request.get(options, (e, r, data) => {
-      const row = data.rows[0]
-      const lmkKey = row['lmk-key']
-      this.getRecommendations(lmkKey, recommendations => {
-        callback(row, recommendations)
+    return new Promise((resolve, reject) => {
+      request.get(options, (e, r, data) => {
+        const property = data.rows[0]
+        const lmkKey = property['lmk-key']
+        this.getRecommendations(lmkKey).then(recommendations => {
+          resolve({ property, recommendations })
+        })
       })
     })
   }
@@ -38,8 +42,10 @@ class OdcApiClient {
 
     const url = urljoin(EPC_BASE_URL, 'recommendations', lmkKey)
     const options = Object.assign({ url }, commonOptions)
-    request.get(options, (e, r, data) => {
-      callback(data.rows)
+    return new Promise((resolve, reject) => {
+      request.get(options, (e, r, data) => {
+        resolve(data.rows)
+      })
     })
   }
 }

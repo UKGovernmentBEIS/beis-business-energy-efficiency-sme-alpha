@@ -16,14 +16,14 @@ app.get('/', (req, res) => {
 
 app.get('/search', (req, res) => {
   const { postcode } = req.query
-  odcApiClient.search(postcode, properties => {
+  odcApiClient.search(postcode).then(properties => {
     res.render('search', { postcode, properties })
   })
 })
 
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
-  odcApiClient.getCertificate(certificateHash, (property, recommendations) => {
+  odcApiClient.getCertificate(certificateHash).then(({ property, recommendations }) => {
     res.render('rating', { certificateHash, property, recommendations })
   })
 })
