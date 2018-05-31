@@ -1,3 +1,4 @@
+const accounting = require('accounting')
 const express = require('express')
 const handlebars = require('express-handlebars')
 
@@ -52,15 +53,14 @@ app.get('/measures', (req, res) => {
       { label: '5-10 years', max: 10, measures: [] },
       { label: '10+ years', max: Infinity, measures: [] }
     ]
-
     measures.sort((m1, m2) => m1.payback - m2.payback).forEach(measure => {
-      for (var i = 0; i < ranges.length; i++) {
-        const range = ranges[i]
-        if (parseFloat(measure.payback) <= range.max) {
-          range.measures.push(measure)
-          break
-        }
-      }
+      // e.g. '£3,450.91' => 3450.91
+      const costAsFloat = parseInt(measure.cost.replace(/[£,]/g, ''))
+      measure.cost = accounting.formatMoney(costAsFloat, '£', 0)
+      measure.annualSavings = accounting.formatMoney(costAsFloat / measure.payback, '£', 0)
+      measure.payback = parseFloat(measure.payback)
+      const range = ranges.find(r => r.max >= measure.payback)
+      range.measures.push(measure)
     })
 
     res.render('measures', { ranges })

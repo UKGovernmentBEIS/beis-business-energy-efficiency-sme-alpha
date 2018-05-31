@@ -25,15 +25,16 @@
     <strong>Sector</strong>
   </label>
   <div class="form-group">
-    {{#each sectors}}
-        <div><small>{{name}}</small></div>
-        {{#each subsectors}}
-          <div class="custom-control custom-radio custom-control-inline">
-            <input type="radio" id="subsector-{{id}}" name="subsector" class="custom-control-input" value="{{name}}">
-            <label class="custom-control-label" for="subsector-{{id}}">{{name}}</label>
-          </div>
-        {{/each}}
-    {{/each}}
+    <select class="form-control" name="subsector">
+      <option disabled selected value>Choose your sector…</optiom>
+      {{#each sectors}}
+        <optgroup label="{{name}}">
+          {{#each subsectors}}
+            <option>{{name}}</option>
+          {{/each}}
+        <optgroup>
+      {{/each}}
+    </select>
   </div>
   <button class="btn btn-primary" type="submit">Search</button>
 </form>

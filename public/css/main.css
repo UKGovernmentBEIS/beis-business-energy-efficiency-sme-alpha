@@ -5,3 +5,12 @@ body {
 .search-results {
   margin-top: 20px;
 }
+
+table.measures-table {
+  margin: 20px 0 50px 0;
+  table-layout: fixed;
+}
+
+table.measures-table th:not(:first-of-type) {
+  width: 20%;
+}
