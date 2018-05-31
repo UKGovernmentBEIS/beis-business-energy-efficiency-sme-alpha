@@ -1,5 +1,6 @@
 const express = require('express')
 const handlebars = require('express-handlebars')
+const request = require('request')
 
 const app = express()
 
@@ -13,10 +14,30 @@ app.get('/', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  res.render('search', {
-    postcode: req.query.postcode
+  const { postcode } = req.query
+  doSearch(postcode, rows => {
+    res.render('search', { postcode, rows })
   })
 })
+
+// -- API CALLS
+
+const EPC_BASE_URL = 'https://epc.opendatacommunities.org/api/v1/non-domestic/'
+
+function doSearch (postcode, callback) {
+  const url = EPC_BASE_URL + 'search'
+  const qs = { postcode }
+  const auth = {
+    'username': 'your.email@example.com',
+    'password': 'yourapikey'
+  }
+  const headers = { 'Accept': 'application/json' }
+  request.get({ url, qs, auth, headers, json: true }, (e, r, data) => {
+    callback(data.rows.length)
+  })
+}
+
+// ---
 
 const port = 5000
 
