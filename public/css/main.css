@@ -1,111 +1,82 @@
-h1 {
-    margin: 40px 0;
-}
-
-h2, h3, h4, h5, h6 {
-    margin: 20px 0;
-}
-
-/* MEASURES VIEW */
-
 .measures-view .alert {
-    margin: 30px 0;
-}
+  margin: 30px 0; }
 
 .measures-view table.measures-table {
-    margin: 20px 0 50px 0;
-    table-layout: fixed;
-}
+  margin: 20px 0 50px 0;
+  table-layout: fixed; }
 
 .measures-view table.measures-table th:not(:first-of-type) {
-    width: 20%;
-}
+  width: 20%; }
 
 .measures-view table.recommendations-table {
-    margin: 20px 0 50px 0;
-    table-layout: fixed;
-}
+  margin: 20px 0 50px 0;
+  table-layout: fixed; }
 
 .measures-view table.recommendations-table th:not(:last-of-type) {
-    width: 20%;
-}
-
-/* RATING VIEW */
+  width: 20%; }
 
 .rating-view .address {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 0;
-}
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0; }
 
 .rating-view .address .rating {
-    color: black;
-    border-radius: 50%;
-    font-size: 2rem;
-    font-weight: bold;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    margin: auto;
-    text-align: center;
-}
+  color: black;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  margin: auto;
+  text-align: center; }
 
 .rating-view .rating.a-rating {
-    background-color: #147C3B;
-}
+  background-color: #147C3B; }
 
 .rating-view .rating.b-rating {
-    background-color: #339E2F;
-}
+  background-color: #339E2F; }
 
 .rating-view .rating.c-rating {
-    background-color: #9FCA45;
-}
+  background-color: #9FCA45; }
 
 .rating-view .rating.d-rating {
-    background-color: #FEF02D;
-}
+  background-color: #FEF02D; }
 
 .rating-view .rating.e-rating {
-    background-color: #F4AD2F;
-}
+  background-color: #F4AD2F; }
 
 .rating-view .rating.f-rating {
-    background-color: #F4AD2F;
-}
+  background-color: #F4AD2F; }
 
 .rating-view .rating.g-rating {
-    background-color: #DF1529;
-}
+  background-color: #DF1529; }
 
 .rating-view .recommendation {
-    font-weight: bold;
-}
+  font-weight: bold; }
 
 .rating-view .recommendation-green {
-    color: #339E2F;
-}
+  color: #339E2F; }
 
 .rating-view .recommendation-yellow {
-    color: #F4AD2F;
-}
+  color: #F4AD2F; }
 
 .rating-view .recommendation-orange {
-    color: #DF1529;
-}
+  color: #DF1529; }
 
 .rating-view .recommendation-other {
-    color: #4b4a4a;
-}
-
-/* SEARCH VIEW */
+  color: #4b4a4a; }
 
 .search-view .search-input {
-    width: 200px;
-    text-transform: uppercase;
-}
+  width: 200px;
+  text-transform: uppercase; }
 
 .search-view .search-result {
-    padding: 15px;
-    margin: 3px;
-}
+  padding: 15px;
+  margin: 3px; }
+
+h1 {
+  margin: 40px 0; }
+
+h2, h3, h4, h5, h6 {
+  margin: 20px 0; }

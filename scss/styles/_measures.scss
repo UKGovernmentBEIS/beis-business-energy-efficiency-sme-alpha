@@ -1,0 +1,21 @@
+.measures-view .alert {
+    margin: 30px 0;
+}
+
+.measures-view table.measures-table {
+    margin: 20px 0 50px 0;
+    table-layout: fixed;
+}
+
+.measures-view table.measures-table th:not(:first-of-type) {
+    width: 20%;
+}
+
+.measures-view table.recommendations-table {
+    margin: 20px 0 50px 0;
+    table-layout: fixed;
+}
+
+.measures-view table.recommendations-table th:not(:last-of-type) {
+    width: 20%;
+}
