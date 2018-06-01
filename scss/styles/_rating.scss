@@ -1,3 +1,5 @@
+
+
 .rating-view .address {
     display: flex;
     justify-content: space-between;
@@ -62,4 +64,16 @@
 
 .rating-view .recommendation-other {
     color: #4b4a4a;
+}
+
+.rating-view{ 
+    .recommendations-table {
+        margin: 20px 0 50px 0;
+        table-layout: fixed;
+    }
+    
+    .recommendations-table th:not(:last-of-type) {
+        width: 20%;
+    }
+
 }
