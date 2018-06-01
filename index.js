@@ -15,11 +15,14 @@ app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-  res.render('search')
+  res.render('home')
 })
 
 app.get('/search', (req, res) => {
   const { postcode } = req.query
+  if (!postcode) {
+    res.render('search')
+  }
   odcApiClient.search(postcode).then(properties => {
     properties = _.sortBy(properties, 'address')
     res.render('search', { postcode, properties })
