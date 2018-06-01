@@ -35,7 +35,7 @@ class OdcApiClient {
     })
   }
 
-  getRecommendations (lmkKey, callback) {
+  getRecommendations (lmkKey) {
     // TODO: Remove this overwrite with example LMK key.
     lmkKey = '100000220150312070330'
 
