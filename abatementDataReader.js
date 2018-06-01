@@ -9,7 +9,7 @@ const SIZE = 'Organisation size'
 const TENURE = 'Tenure Status'
 const MEASURE = 'Measure group'
 const PAYBACK = 'Subsector payback period (years)'
-const COST = 'Capital cost (£)'
+const COST = 'Reformulated capital cost'
 
 class AbatementDataReader {
   getSectors () {
