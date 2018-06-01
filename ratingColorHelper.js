@@ -13,11 +13,11 @@ class RatingColorHelper {
   getRecommendationColor (order) {
     switch (order) {
       case 0:
-        return 'recommendation-green'
+        return 'recommendation-good'
       case 1:
-        return 'recommendation-yellow'
+        return 'recommendation-medium'
       case 2:
-        return 'recommendation-orange'
+        return 'recommendation-bad'
       case 3:
         return 'recommendation-other'
       default:
