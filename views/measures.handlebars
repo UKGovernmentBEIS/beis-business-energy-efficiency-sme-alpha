@@ -1,31 +1,43 @@
-<div class="page measures-page">
-  <div class="page-header">
-    <h1 class="page-title">Recommended Measures</h1>
-  </div>
-</div>
-<div class="page-content">
-  {{#each ranges}}
-    {{#if measures.length}}
-      <h3>{{label}}</h3>
-      <table class="table table-hover measures-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>Savings per year</th>
-            <th>Start saving in</th>
-            <th>Total upfront cost</th>
-          </tr>
-        </thead>
-        {{#each measures}}
-          <tr>
-            <td>{{group}}</td>
-            <td>{{annualSavings}}</td>
-            <td>{{payback}} years</td>
-            <td>{{cost}}</td>
-          </tr>
-        {{/each}}
-      </table>
-    {{/if}}
-  {{/each}}
+<h1>Recommended Measures</h1>
+<div class="alert alert-warning">
+  <p>
+    <strong>Note!</strong> These figures are NOT specific to your business.
+  </p>
+  <p>
+    They provide a rough estimation of potential payback periods and costs. Figures shown are based on broad historical averages
+    from across different industries and companies based in England.
+  </p>
+  <p>
+    Users are advised to seek further detailed professional advice to determine exact savings potential before undertaking any
+    work.
+  </p>
 </div>
 
+{{#each ranges}}
+  {{#if measures.length}}
+    <h3>{{period}} payback</h3>
+    <table class="table table-hover measures-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Potential annual savings</th>
+          <th>Start saving in</th>
+          <th>Approximate cost</th>
+        </tr>
+      </thead>
+      {{#each measures}}
+        <tr>
+          <td>
+            <div>{{group}}</div>
+            <a href='javascript:alert("⚠ The \"Learn more…\" feature is a work in progress.")'>
+              <small>Learn more…</small>
+            </a>
+          </td>
+          <td>{{annualSavings}}</td>
+          <td>{{payback}} years</td>
+          <td>{{cost}}</td>
+        </tr>
+      {{/each}}
+    </table>
+  {{/if}}
+{{/each}}
