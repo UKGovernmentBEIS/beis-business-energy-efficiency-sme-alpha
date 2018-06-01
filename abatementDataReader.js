@@ -21,11 +21,11 @@ class AbatementDataReader {
         const subsectors = subsectorsBySector[rowSector] || (subsectorsBySector[rowSector] = new Set())
         subsectors.add(rowSubsector)
       })
-      const sectors = Object.keys(subsectorsBySector).sort().map((sector, i) => {
-        const subsectors = Array.from(subsectorsBySector[sector]).sort().map((subsector, j) => {
-          return { id: i * 100 + j, name: subsector }
+      const sectors = Object.keys(subsectorsBySector).sort().map(sector => {
+        const subsectors = Array.from(subsectorsBySector[sector]).sort().map(subsector => {
+          return { name: subsector }
         })
-        return { id: i, name: sector, subsectors }
+        return { name: sector, subsectors }
       })
       return sectors
     })

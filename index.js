@@ -70,7 +70,7 @@ app.get('/measures', (req, res) => {
       { period: '5-10 years', max: 10, measures: [] },
       { period: '10+ years', max: Infinity, measures: [] }
     ]
-    measures.sort((m1, m2) => m1.payback - m2.payback).forEach(measure => {
+    _.sortBy(measures, 'payback').forEach(measure => {
       // e.g. '£3,450.91' => 3450.91
       const costAsFloat = parseInt(measure.cost.replace(/[£,]/g, ''))
       measure.cost = formatMoney(costAsFloat)
@@ -79,15 +79,14 @@ app.get('/measures', (req, res) => {
       const range = ranges.find(r => r.max >= measure.payback)
       range.measures.push(measure)
     })
-
     res.render('measures', { ranges })
   })
 })
 
 function formatMoney (value) {
-  const roundToNearest = 1000
-  value = Math.round(value / roundToNearest) * roundToNearest
-  return value === 0 ? `< ${accounting.formatMoney(roundToNearest, '£', 0)}` : accounting.formatMoney(value, '£', 0)
+  const precision = 1000 // Round to nearest
+  value = Math.round(value / precision) * precision
+  return value === 0 ? `< ${accounting.formatMoney(precision, '£', 0)}` : accounting.formatMoney(value, '£', 0)
 }
 
 const port = process.env.PORT || 5000

@@ -1,20 +1,10 @@
 class RatingColorHelper {
   getRatingColor (property) {
-    switch (property['asset-rating-band']) {
-      case 'A':
-        return 'a-rating'
-      case 'B':
-        return 'b-rating'
-      case 'C':
-        return 'c-rating'
-      case 'D':
-        return 'd-rating'
-      case 'E':
-        return 'e-rating'
-      case 'F':
-        return 'f-rating'
-      case 'G':
-        return 'g-rating'
+    const band = property['asset-rating-band']
+    switch (band) {
+      case 'A': case 'B': case 'C': case 'D':
+      case 'E': case 'F': case 'G':
+        return `${band.toLowerCase()}-rating`
       default:
         break
     }
