@@ -1,8 +1,7 @@
 const accounting = require('accounting')
 const express = require('express')
 const handlebars = require('express-handlebars')
-const request = require('request')
-const urljoin = require('url-join')
+const _ = require('lodash')
 
 const abatementDataReader = require('./abatementDataReader')
 const odcApiClient = require('./odcApiClient')
@@ -22,6 +21,7 @@ app.get('/', (req, res) => {
 app.get('/search', (req, res) => {
   const { postcode } = req.query
   odcApiClient.search(postcode).then(properties => {
+    properties = _.sortBy(properties, 'address')
     res.render('search', { postcode, properties })
   })
 })
