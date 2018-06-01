@@ -56,6 +56,26 @@
     background-color: #DF1529;
 }
 
+.results-page .recommendation {
+    font-weight: bold;
+}
+
+.results-page .recommendation-green {
+    color: #339E2F;
+}
+
+.results-page .recommendation-yellow {
+    color: #F4AD2F;
+}
+
+.results-page .recommendation-orange {
+    color: #DF1529;
+}
+
+.results-page .recommendation-other {
+    color: #4b4a4a;
+}
+
 .results-page .address-row {
     display: flex;
     justify-content: space-between;

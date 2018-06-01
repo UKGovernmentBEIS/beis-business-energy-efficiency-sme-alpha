@@ -31,10 +31,12 @@ const CO2_IMPACT_ORDER = { 'HIGH': 0, 'MEDIUM': 1, 'LOW': 2 }
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificate(certificateHash).then(({ property, recommendations }) => {
-    property.color = ratingColorHelper.getColor(property)
+    property.color = ratingColorHelper.getRatingColor(property)
     recommendations.forEach(recommendation => {
       recommendation.paybackTypeOrder = PAYBACK_TYPE_ORDER[recommendation.PAYBACK_TYPE]
+      recommendation.paybackTypeColor = ratingColorHelper.getRecommendationColor(recommendation.paybackTypeOrder)
       recommendation.co2ImpactOrder = CO2_IMPACT_ORDER[recommendation.CO2_IMPACT]
+      recommendation.co2ImpactColor = ratingColorHelper.getRecommendationColor(recommendation.co2ImpactOrder)
     })
     recommendations = _.sortBy(recommendations, ['paybackTypeOrder', 'co2ImpactOrder'])
     res.render('rating', { certificateHash, property, recommendations })
