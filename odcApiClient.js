@@ -1,11 +1,10 @@
 const request = require('request')
 const urljoin = require('url-join')
-const fs = require('fs')
 
 const EPC_BASE_URL = 'https://epc.opendatacommunities.org/api/v1/non-domestic/'
 
 const commonOptions = Object.freeze({
-  auth: JSON.parse(fs.readFileSync('./auth.json')),
+  auth: { username: process.env.ODC_USERNAME, password: process.env.ODC_PASSWORD },
   headers: { 'Accept': 'application/json' },
   json: true
 })

@@ -13,10 +13,7 @@
     "url-join": "^4.0.0"
   },
   "scripts": {
-    "build-css": "node-sass --include-path scss scss/main.scss public/css/main.css",
-    "prestart": "npm run build-css",
-    "start": "nodemon --inspect -e handlebars,js,scss --exec \"npm run my-app\"",
-    "my-app": "npm run build-css && node ./index.js"
+    "start": "nodemon --exec \"heroku local debug\" -e handlebars,js"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
@@ -25,6 +22,7 @@
     "eslint-plugin-node": "^6.0.1",
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
+    "heroku": "^7.0.84",
     "node-sass": "^4.9.0",
     "nodemon": "^1.17.5"
   }
