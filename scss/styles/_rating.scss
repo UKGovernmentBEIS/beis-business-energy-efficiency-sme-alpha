@@ -1,79 +1,78 @@
+@import 'colors';
 
+.rating-view {
+    .address {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
 
-.rating-view .address {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 0;
-}
+        .rating {
+            color: black;
+            border-radius: 50%;
+            font-size: 2rem;
+            font-weight: bold;
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            margin: auto;
+            text-align: center;
+        }
 
-.rating-view .address .rating {
-    color: black;
-    border-radius: 50%;
-    font-size: 2rem;
-    font-weight: bold;
-    width: 100px;
-    height: 100px;
-    line-height: 100px;
-    margin: auto;
-    text-align: center;
-}
+        .a-rating {
+            background-color: $dark-green;
+        }
 
-.rating-view .rating.a-rating {
-    background-color: #147C3B;
-}
+        .b-rating {
+            background-color: $green;
+        }
 
-.rating-view .rating.b-rating {
-    background-color: #339E2F;
-}
+        .c-rating {
+            background-color: $light-green;
+        }
 
-.rating-view .rating.c-rating {
-    background-color: #9FCA45;
-}
+        .d-rating {
+            background-color: $yellow;
+        }
 
-.rating-view .rating.d-rating {
-    background-color: #FEF02D;
-}
+        .e-rating {
+            background-color: $orange;
+        }
 
-.rating-view .rating.e-rating {
-    background-color: #F4AD2F;
-}
+        .f-rating {
+            background-color: $dark-orange;
+        }
 
-.rating-view .rating.f-rating {
-    background-color: #F4AD2F;
-}
+        .g-rating {
+            background-color: $red;
+        }
+    }
 
-.rating-view .rating.g-rating {
-    background-color: #DF1529;
-}
+    .recommendation {
+        font-weight: bold;
+    }
 
-.rating-view .recommendation {
-    font-weight: bold;
-}
+    .recommendation-good {
+        color: $dark-green;
+    }
 
-.rating-view .recommendation-green {
-    color: $recommendation-green;
-}
+    .recommendation-medium {
+        color: $orange;
+    }
 
-.rating-view .recommendation-yellow {
-    color: #F4AD2F;
-}
+    .recommendation-bad {
+        color: $red;
+    }
 
-.rating-view .recommendation-orange {
-    color: #DF1529;
-}
+    .recommendation-other {
+        color: $grey;
+    }
 
-.rating-view .recommendation-other {
-    color: #4b4a4a;
-}
-
-.rating-view{ 
     .recommendations-table {
         margin: 20px 0 50px 0;
         table-layout: fixed;
+        
+        th:not(:last-of-type) {
+            width: 20%;
+        }
     }
-    
-    .recommendations-table th:not(:last-of-type) {
-        width: 20%;
-    }
-
 }
