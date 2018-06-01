@@ -1,4 +1,4 @@
-@import 'colors';
+@import '../colors';
 
 .rating-view {
     .address {
@@ -70,7 +70,7 @@
     .recommendations-table {
         margin: 20px 0 50px 0;
         table-layout: fixed;
-        
+
         th:not(:last-of-type) {
             width: 20%;
         }
