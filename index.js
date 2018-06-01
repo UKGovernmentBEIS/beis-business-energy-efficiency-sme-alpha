@@ -22,6 +22,7 @@ app.get('/search', (req, res) => {
   const { postcode } = req.query
   if (!postcode) {
     res.render('search')
+    return
   }
   odcApiClient.search(postcode).then(properties => {
     properties = _.sortBy(properties, 'address')
