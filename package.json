@@ -16,7 +16,8 @@
     "sass": "node-sass styles/main.scss public/css/main.css",
     "sass:watch": "node-sass styles/main.scss public/css/main.css --watch",
     "debug": "nodemon --exec \"heroku local debug\" -e handlebars,js",
-    "start": "npm-run-all sass --parallel debug sass:watch"
+    "livereload": "livereload . --wait 500 --debug",
+    "start": "npm-run-all sass --parallel debug sass:watch livereload"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
@@ -26,6 +27,7 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "heroku": "^7.0.84",
+    "livereload": "^0.7.0",
     "node-sass": "^4.9.0",
     "nodemon": "^1.17.5",
     "npm-run-all": "^4.1.3"
