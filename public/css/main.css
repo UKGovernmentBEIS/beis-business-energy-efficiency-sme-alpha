@@ -1,7 +1,10 @@
-.page-header {
-    padding: 60px 40px;
+.navbar.bg-beis {
     background-color: #BEE8F1;
     color: #1A485F;
+}
+
+.page-header {
+    padding: 60px 20px;
 }
 
 .page-content {

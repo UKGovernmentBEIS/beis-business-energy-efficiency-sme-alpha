@@ -26,10 +26,17 @@ app.get('/search', (req, res) => {
   })
 })
 
+const PAYBACK_TYPE_ORDER = { 'SHORT': 0, 'MEDIUM': 1, 'LONG': 2, 'OTHER': 3 }
+const CO2_IMPACT_ORDER = { 'HIGH': 0, 'MEDIUM': 1, 'LOW': 2 }
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificate(certificateHash).then(({ property, recommendations }) => {
     property.color = ratingColorHelper.getColor(property)
+    recommendations.forEach(recommendation => {
+      recommendation.paybackTypeOrder = PAYBACK_TYPE_ORDER[recommendation.PAYBACK_TYPE]
+      recommendation.co2ImpactOrder = CO2_IMPACT_ORDER[recommendation.CO2_IMPACT]
+    })
+    recommendations = _.sortBy(recommendations, ['paybackTypeOrder', 'co2ImpactOrder'])
     res.render('rating', { certificateHash, property, recommendations })
   })
 })
