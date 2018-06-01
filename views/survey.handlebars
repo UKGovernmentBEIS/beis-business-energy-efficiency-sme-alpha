@@ -1,47 +1,35 @@
-<div class="page survey-page">
-  <div class="page-header">
-    <h1 class="page-title">Energy Advice Survey</h1>
+<h1>Energy Advice Survey</h1>
+<form action="/measures">
+  <label>Organisation size</label>
+  <div class="form-group">
+    {{#each sizes}}
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="size-{{value}}" name="size" class="custom-control-input" value="{{value}}">
+        <label class="custom-control-label" for="size-{{value}}">{{label}}</label>
+      </div>
+    {{/each}}
   </div>
-  <div class="page-content">
-    <form action="/measures">
-      <label for="sector">
-        <strong>Organisation size</strong>
-      </label>
-      <div class="form-group">
-        {{#each sizes}}
-        <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="size-{{value}}" name="size" class="custom-control-input" value="{{value}}">
-          <label class="custom-control-label" for="size-{{value}}">{{label}}</label>
-        </div>
-        {{/each}}
+  <label>Tenure status</label>
+  <div class="form-group">
+    {{#each tenures}}
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="tenure-{{value}}" name="tenure" class="custom-control-input" value="{{value}}">
+        <label class="custom-control-label" for="tenure-{{value}}">{{label}}</label>
       </div>
-      <label for="sector">
-        <strong>Tenure status</strong>
-      </label>
-      <div class="form-group">
-        {{#each tenures}}
-        <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio" id="tenure-{{value}}" name="tenure" class="custom-control-input" value="{{value}}">
-          <label class="custom-control-label" for="tenure-{{value}}">{{label}}</label>
-        </div>
-        {{/each}}
-      </div>
-      <label>
-        <strong>Sector</strong>
-      </label>
-      <div class="form-group">
-        <select class="form-control" name="subsector">
-          <option disabled selected value>Choose your sector…</optiom>
-            {{#each sectors}}
-            <optgroup label="{{name}}">
-              {{#each subsectors}}
+    {{/each}}
+  </div>
+  <label>Sector</label>
+  <div class="form-group">
+    <select class="form-control" name="subsector">
+      <option disabled selected value>Choose your sector…</optiom>
+        {{#each sectors}}
+          <optgroup label="{{name}}">
+            {{#each subsectors}}
               <option>{{name}}</option>
-              {{/each}}
-              <optgroup>
-                {{/each}}
-        </select>
-      </div>
-      <button class="btn btn-primary" type="submit">Search</button>
-    </form>
+            {{/each}}
+          <optgroup>
+        {{/each}}
+    </select>
   </div>
-</div>
+  <button class="btn btn-primary" type="submit">Search</button>
+</form>

@@ -1,119 +1,111 @@
-.navbar.bg-beis {
-    background-color: #BEE8F1;
-    color: #1A485F;
+h1 {
+    margin: 40px 0;
 }
 
-.page-header {
-    padding: 60px 20px;
+h2, h3, h4, h5, h6 {
+    margin: 20px 0;
 }
 
-.page-content {
-    padding: 40px 20px;
+/* MEASURES VIEW */
+
+.measures-view .alert {
+    margin: 30px 0;
 }
 
-.subheading {
-    font-size: 24px;
-    padding: 20px 0;
+.measures-view table.measures-table {
+    margin: 20px 0 50px 0;
+    table-layout: fixed;
 }
 
-.results-page .rating {
+.measures-view table.measures-table th:not(:first-of-type) {
+    width: 20%;
+}
+
+.measures-view table.recommendations-table {
+    margin: 20px 0 50px 0;
+    table-layout: fixed;
+}
+
+.measures-view table.recommendations-table th:not(:last-of-type) {
+    width: 20%;
+}
+
+/* RATING VIEW */
+
+.rating-view .address {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.rating-view .address .rating {
     color: black;
-    padding: 30px;
     border-radius: 50%;
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: bold;
     width: 100px;
     height: 100px;
+    line-height: 100px;
     margin: auto;
     text-align: center;
 }
 
-.results-page .a-rating {
+.rating-view .rating.a-rating {
     background-color: #147C3B;
 }
 
-.results-page .b-rating {
+.rating-view .rating.b-rating {
     background-color: #339E2F;
 }
 
-.results-page .c-rating {
+.rating-view .rating.c-rating {
     background-color: #9FCA45;
 }
 
-.results-page .d-rating {
+.rating-view .rating.d-rating {
     background-color: #FEF02D;
 }
 
-.results-page .e-rating {
+.rating-view .rating.e-rating {
     background-color: #F4AD2F;
 }
 
-.results-page .f-rating {
+.rating-view .rating.f-rating {
     background-color: #F4AD2F;
 }
 
-.results-page .g-rating {
+.rating-view .rating.g-rating {
     background-color: #DF1529;
 }
 
-.results-page .recommendation {
+.rating-view .recommendation {
     font-weight: bold;
 }
 
-.results-page .recommendation-green {
+.rating-view .recommendation-green {
     color: #339E2F;
 }
 
-.results-page .recommendation-yellow {
+.rating-view .recommendation-yellow {
     color: #F4AD2F;
 }
 
-.results-page .recommendation-orange {
+.rating-view .recommendation-orange {
     color: #DF1529;
 }
 
-.results-page .recommendation-other {
+.rating-view .recommendation-other {
     color: #4b4a4a;
 }
 
-.results-page .address-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+/* SEARCH VIEW */
+
+.search-view .search-input {
+    width: 200px;
+    text-transform: uppercase;
 }
 
-.search-page .form-inline {
-    padding-bottom: 20px;
-}
-
-.search-page .btn-light {
+.search-view .search-result {
     padding: 15px;
     margin: 3px;
-    /* background-color: #f5f5f5; */
-}
-
-.search-page .search-results {
-    padding-bottom: 80px;
-}
-
-table.measures-table {
-    margin: 20px 0 50px 0;
-    table-layout: fixed;
-}
-
-table.measures-table th:not(:first-of-type) {
-    width: 20%;
-}
-
-table.recommendations-table {
-    margin: 20px 0 50px 0;
-    table-layout: fixed;
-}
-
-table.recommendations-table th:not(:last-of-type) {
-    width: 20%;
-}
-
-.form-inline .postcode, .form-control {
-    padding-left: 10px;
 }

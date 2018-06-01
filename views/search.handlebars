@@ -1,27 +1,17 @@
-<div class="page search-page">
-  <div class="page-header">
-    <h1 class="page-title">Energy Advice Service</h1>
+<h1>Energy Advice Service</h1>
+<h4>Enter your postcode below to receive your energy recommendations</h4>
+<form action="/search">
+  <div class="form-group">
+    <label for="postcode">Postcode</label>
+    <input class="search-input form-control" type="text" name="postcode" value="{{postcode}}">
   </div>
-  <div class="page-content">
-    <div class="row">
-      <div class="subheading">Enter your postcode below to receive your energy recommendations</div>
-    </div>
-    <div class="row">
-      <form class="form-inline" action="/search">
-        <div class="form-group">
-          <label class="postcode" for="postcode">Postcode</label>
-          <input class="form-control" type="text" name="postcode" value="{{postcode}}">
-        </div>
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form>
-    </div>
-    <div class="search-results">
-      {{#postcode}}
-      <div class="subheading">Results</div>
-      {{/postcode}} {{#each properties}}
-        <a href="/rating/{{certificate-hash}}" class="btn btn-light">{{address}}</a>
-      {{/each}}
-
-    </div>
-  </div>
+  <button class="btn btn-primary" type="submit">Search</button>
+</form>
+{{#postcode}}
+  <h4>Properties</h4>
+{{/postcode}}
+<div class="results">
+  {{#each properties}}
+    <a href="/rating/{{certificate-hash}}" class="btn btn-secondary search-result">{{address}}</a>
+  {{/each}}
 </div>
