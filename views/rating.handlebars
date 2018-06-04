@@ -9,13 +9,11 @@
   <table class="table table-hover recommendations-table">
     <tr>
       <th>Payback type</th>
-      <th>CO2 Impact</th>
       <th>Recommendation</th>
     </tr>
     {{#each recommendations}}
       <tr>
         <td class="recommendation {{paybackTypeColor}}">{{PAYBACK_TYPE}}</td>
-        <td class="recommendation {{co2ImpactColor}}">{{CO2_IMPACT}}</td>
         <td>{{RECOMMENDATION}}</td>
       </tr>
     {{/each}}
