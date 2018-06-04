@@ -80,7 +80,7 @@ app.get('/measures', (req, res) => {
       range.measures.push(measure)
     })
     ranges = ranges.filter(r => r.measures.length > 0)
-    res.render('measures', { ranges })
+    res.render('measures', { ranges, ...req.query })
   })
 })
 
