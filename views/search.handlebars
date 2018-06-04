@@ -9,11 +9,11 @@
 </form>
 {{#if postcode}}
   <h4>Properties</h4>
+  <div class="results">
+    {{#each properties}}
+      <a href="/rating/{{certificate-hash}}" class="btn btn-secondary search-result">{{address}}</a>
+      {{else}}
+      <p>There are no non-domestic properties associated with this postcode.</p>
+    {{/each}}
+  </div>
 {{/if}}
-<div class="results">
-  {{#each properties}}
-    <a href="/rating/{{certificate-hash}}" class="btn btn-secondary search-result">{{address}}</a>
-    {{else}}
-    <p>There are no non-domestic properties associated with this postcode.</p>
-  {{/each}}
-</div>
