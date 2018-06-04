@@ -1,2 +1,2 @@
 debug: node --inspect index.js
-web: node index.js
+web: npm run sass && node index.js
