@@ -38,6 +38,7 @@ yarn
 ```
 ODC_USERNAME=your.name@softwire.com
 ODC_PASSWORD=yourapikey
+USE_DUMMY_RECOMMENDATIONS=yes
 ```
 * Run the `start` task to launch the site in development mode.
 ```

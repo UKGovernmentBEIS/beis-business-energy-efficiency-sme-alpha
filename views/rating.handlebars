@@ -5,17 +5,21 @@
     <div class="rating {{color}}">{{asset-rating-band}}</div>
   {{/with}}
 </div>
-<table class="table table-hover recommendations-table">
-  <tr>
-    <th>Payback type</th>
-    <th>CO2 Impact</th>
-    <th>Recommendation</th>
-  </tr>
-  {{#each recommendations}}
+{{#if recommendations.length}}
+  <table class="table table-hover recommendations-table">
     <tr>
-      <td class="recommendation {{paybackTypeColor}}">{{PAYBACK_TYPE}}</td>
-      <td class="recommendation {{co2ImpactColor}}">{{CO2_IMPACT}}</td>
-      <td>{{RECOMMENDATION}}</td>
+      <th>Payback type</th>
+      <th>CO2 Impact</th>
+      <th>Recommendation</th>
     </tr>
-  {{/each}}
-</table>
+    {{#each recommendations}}
+      <tr>
+        <td class="recommendation {{paybackTypeColor}}">{{PAYBACK_TYPE}}</td>
+        <td class="recommendation {{co2ImpactColor}}">{{CO2_IMPACT}}</td>
+        <td>{{RECOMMENDATION}}</td>
+      </tr>
+    {{/each}}
+  </table>
+  {{else}}
+  <p>There are no specific recommendations for this property.</p>
+{{/if}}

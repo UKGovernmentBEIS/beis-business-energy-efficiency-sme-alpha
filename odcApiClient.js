@@ -36,14 +36,16 @@ class OdcApiClient {
   }
 
   getRecommendations (lmkKey) {
-    // TODO: Remove this overwrite with example LMK key.
-    lmkKey = '100000220150312070330'
+    // Data availability is currently low for recommendations, so we add examples.
+    if (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes') {
+      lmkKey = '100000220150312070330'
+    }
 
     const url = urljoin(EPC_BASE_URL, 'recommendations', lmkKey)
     const options = Object.assign({ url }, commonOptions)
     return new Promise((resolve, reject) => {
       request.get(options, (e, r, data) => {
-        resolve(data.rows)
+        resolve(r.statusCode !== 404 ? data.rows : [])
       })
     })
   }
