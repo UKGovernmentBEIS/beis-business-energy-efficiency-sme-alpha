@@ -16,9 +16,12 @@
     "sass": "node-sass styles/main.scss public/css/main.css",
     "sass:watch": "node-sass styles/main.scss public/css/main.css --watch",
     "debug": "nodemon --exec \"heroku local debug\" -e handlebars,js",
-    "start": "npm-run-all sass --parallel debug sass:watch"
+    "start": "npm-run-all sass --parallel debug sass:watch",
+    "test": "mocha"
   },
   "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.12.0",
@@ -26,6 +29,7 @@
     "eslint-plugin-promise": "^3.8.0",
     "eslint-plugin-standard": "^3.1.0",
     "heroku": "^7.0.84",
+    "mocha": "^5.2.0",
     "node-sass": "^4.9.0",
     "nodemon": "^1.17.5",
     "npm-run-all": "^4.1.3"
