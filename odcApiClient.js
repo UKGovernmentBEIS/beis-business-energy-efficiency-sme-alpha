@@ -16,7 +16,7 @@ class OdcApiClient {
     const options = Object.assign({ url, qs }, commonOptions)
     return new Promise((resolve, reject) => {
       request.get(options, (e, r, data) => {
-        resolve(data.rows)
+        resolve(data ? data.rows : [])
       })
     })
   }
