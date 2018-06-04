@@ -71,7 +71,7 @@
         margin: 20px 0 50px 0;
         table-layout: fixed;
 
-        th:not(:last-of-type) {
+        th:not(:first-of-type) {
             width: 20%;
         }
     }
