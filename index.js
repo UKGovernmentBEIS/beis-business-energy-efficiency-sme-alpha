@@ -64,7 +64,7 @@ app.get('/survey', (req, res) => {
 
 app.get('/measures', (req, res) => {
   abatementDataReader.getMeasures(req.query).then(measures => {
-    const ranges = [
+    let ranges = [
       { period: '0-2 years', max: 2, measures: [] },
       { period: '2-5 years', max: 5, measures: [] },
       { period: '5-10 years', max: 10, measures: [] },
@@ -79,6 +79,7 @@ app.get('/measures', (req, res) => {
       const range = ranges.find(r => r.max >= measure.payback)
       range.measures.push(measure)
     })
+    ranges = ranges.filter(r => r.measures.length > 0)
     res.render('measures', { ranges })
   })
 })

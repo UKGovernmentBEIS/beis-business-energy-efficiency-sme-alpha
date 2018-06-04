@@ -14,30 +14,30 @@
 </div>
 
 {{#each ranges}}
-  {{#if measures.length}}
-    <h3>{{period}} payback</h3>
-    <table class="table table-hover measures-table">
-      <thead>
-        <tr>
-          <th></th>
-          <th>Potential annual savings</th>
-          <th>Start saving in</th>
-          <th>Approximate cost</th>
-        </tr>
-      </thead>
-      {{#each measures}}
-        <tr>
-          <td>
-            <div>{{group}}</div>
-            <a href='javascript:alert("⚠ The \"Learn more…\" feature is a work in progress.")'>
-              <small>Learn more…</small>
-            </a>
-          </td>
-          <td>{{annualSavings}}</td>
-          <td>{{payback}} years</td>
-          <td>{{cost}}</td>
-        </tr>
-      {{/each}}
-    </table>
-  {{/if}}
+  <h3>{{period}} payback</h3>
+  <table class="table table-hover measures-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Potential annual savings</th>
+        <th>Start saving in</th>
+        <th>Approximate cost</th>
+      </tr>
+    </thead>
+    {{#each measures}}
+      <tr>
+        <td>
+          <div>{{group}}</div>
+          <a href='javascript:alert("⚠ The \"Learn more…\" feature is a work in progress.")'>
+            <small>Learn more…</small>
+          </a>
+        </td>
+        <td>{{annualSavings}}</td>
+        <td>{{payback}} years</td>
+        <td>{{cost}}</td>
+      </tr>
+    {{/each}}
+  </table>
+  {{else}}
+  <p>There are no recommended measures identified for this type of enterprise.</p>
 {{/each}}
