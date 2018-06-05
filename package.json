@@ -17,7 +17,7 @@
     "sass": "node-sass styles/main.scss public/css/main.css",
     "sass:watch": "node-sass styles/main.scss public/css/main.css --watch",
     "debug": "nodemon --exec \"heroku local debug\" -e handlebars,js",
-    "livereload": "livereload . --wait 500 --debug",
+    "livereload": "livereload . --debug --wait 500 --extraExts handlebars",
     "start": "npm-run-all sass --parallel debug sass:watch livereload",
     "test": "mocha"
   },
