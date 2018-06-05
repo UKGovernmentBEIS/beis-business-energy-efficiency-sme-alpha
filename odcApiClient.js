@@ -28,24 +28,25 @@ class OdcApiClient {
       request.get(options, (e, r, data) => {
         const property = data.rows[0]
         const lmkKey = property['lmk-key']
-        this.getRecommendations(lmkKey).then(recommendations => {
-          resolve({ property, recommendations })
+        this.getRecommendations(lmkKey).then(data => {
+          resolve({ property, ...data })
         })
       })
     })
   }
 
   getRecommendations (lmkKey) {
-    // Data availability is currently low for recommendations, so we add examples.
-    if (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes') {
-      lmkKey = '100000220150312070330'
-    }
-
     const url = urljoin(EPC_BASE_URL, 'recommendations', lmkKey)
     const options = Object.assign({ url }, commonOptions)
     return new Promise((resolve, reject) => {
       request.get(options, (e, r, data) => {
-        resolve(r.statusCode !== 404 ? data.rows : [])
+        if (r.statusCode !== 404) {
+          resolve({ recommendations: data.rows })
+        } else if (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes') {
+          this.getRecommendations('100000220150312070330').then(data => resolve({ ...data, isDummy: true }))
+        } else {
+          resolve([])
+        }
       })
     })
   }

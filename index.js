@@ -34,7 +34,7 @@ const PAYBACK_TYPE_ORDER = { 'SHORT': 0, 'MEDIUM': 1, 'LONG': 2, 'OTHER': 3 }
 const PAYBACK_TYPE_TITLES = { 'SHORT': '0-2 years', 'MEDIUM': '3-6 years', 'LONG': '7+ years' }
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
-  odcApiClient.getCertificate(certificateHash).then(({ property, recommendations }) => {
+  odcApiClient.getCertificate(certificateHash).then(({ property, recommendations, isDummy }) => {
     property.color = ratingColorHelper.getRatingColor(property)
     recommendations.forEach(recommendation => {
       recommendation.paybackTypeOrder = PAYBACK_TYPE_ORDER[recommendation.PAYBACK_TYPE]
@@ -42,7 +42,7 @@ app.get('/rating/:certificateHash', (req, res) => {
       recommendation.paybackTypeTitle = PAYBACK_TYPE_TITLES[recommendation.PAYBACK_TYPE] || '-'
     })
     recommendations = _.sortBy(recommendations, ['paybackTypeOrder'])
-    res.render('rating', { certificateHash, property, recommendations })
+    res.render('rating', { certificateHash, property, recommendations, isDummy })
   })
 })
 
