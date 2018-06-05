@@ -1,6 +1,7 @@
 const accounting = require('accounting')
 const express = require('express')
 const handlebars = require('express-handlebars')
+const moment = require('moment')
 const _ = require('lodash')
 
 const abatementDataReader = require('./abatementDataReader')
@@ -36,6 +37,7 @@ app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificate(certificateHash).then(({ property, recommendations, isDummy }) => {
     property.color = ratingColorHelper.getRatingColor(property)
+    property['inspection-date'] = moment(property['inspection-date']).format('DD/MM/YYYY')
     recommendations.forEach(recommendation => {
       recommendation.paybackTypeOrder = PAYBACK_TYPE_ORDER[recommendation.PAYBACK_TYPE]
       recommendation.paybackTypeColor = ratingColorHelper.getRecommendationColor(recommendation.paybackTypeOrder)

@@ -1,7 +1,10 @@
 <h1>Energy Recommendations</h1>
 <div class="address">
   {{#with property}}
-    <h3>{{address}}</h3>
+    <div>
+      <h3>{{address}}</h3>
+      <h5>Inspection date: {{inspection-date}}</h5>
+    </div>
     <div class="rating {{color}}">{{asset-rating-band}}</div>
   {{/with}}
 </div>

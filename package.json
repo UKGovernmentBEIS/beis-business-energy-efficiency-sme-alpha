@@ -9,6 +9,7 @@
     "express-handlebars": "^3.0.0",
     "fast-csv": "^2.4.1",
     "lodash": "^4.17.10",
+    "moment": "^2.22.2",
     "node-sass": "^4.9.0",
     "request": "^2.87.0",
     "url-join": "^4.0.0"
