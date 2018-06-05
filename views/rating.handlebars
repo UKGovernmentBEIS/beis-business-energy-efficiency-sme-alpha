@@ -17,12 +17,16 @@
   <table class="table table-hover recommendations-table">
     <tr>
       <th>Recommendation</th>
+      <th>Approximate cost</th>
       <th>Repays cost in</th>
+      <th>Effect on your EPC</th>
     </tr>
     {{#each recommendations}}
       <tr>
         <td>{{RECOMMENDATION}}</td>
+        <td>£5,000</td>
         <td class="recommendation {{paybackTypeColor}}">{{paybackTypeTitle}}</td>
+        <td>+1</td>
       </tr>
     {{/each}}
   </table>
