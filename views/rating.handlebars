@@ -1,11 +1,11 @@
 <h1>Energy Recommendations</h1>
 <div class="address">
-  {{#with property}}
+  {{#with certificate}}
     <div>
       <h3>{{address}}</h3>
-      <h5>Inspection date: {{inspection-date}}</h5>
+      <h5>Inspection date: {{inspectionDate}}</h5>
     </div>
-    <div class="rating {{color}}">{{asset-rating-band}}</div>
+    <div class="rating {{ratingClass}}">{{assetRatingBand}}</div>
   {{/with}}
 </div>
 {{#if recommendations.length}}
@@ -18,7 +18,7 @@
     </tr>
     {{#each recommendations}}
       <tr>
-        <td>{{RECOMMENDATION}}</td>
+        <td>{{recommendation}}</td>
         <td>£5,000</td>
         <td class="recommendation {{paybackTypeColor}}">{{paybackTypeTitle}}</td>
         <td>+1</td>

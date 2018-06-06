@@ -21,15 +21,15 @@ class OdcApiClient {
     })
   }
 
-  getCertificate (certificateHash) {
+  getCertificateAndRecommendations (certificateHash) {
     const url = urljoin(EPC_BASE_URL, 'certificate', certificateHash)
     const options = Object.assign({ url }, commonOptions)
     return new Promise((resolve, reject) => {
       request.get(options, (e, r, data) => {
-        const property = data.rows[0]
-        const lmkKey = property['lmk-key']
+        const certificate = data.rows[0]
+        const lmkKey = certificate['lmk-key']
         this.getRecommendations(lmkKey).then(recommendations => {
-          resolve({ property, recommendations })
+          resolve({ certificate, recommendations })
         })
       })
     })
