@@ -4,9 +4,9 @@ const handlebars = require('express-handlebars')
 const moment = require('moment')
 const _ = require('lodash')
 
-const abatementDataReader = require('./abatementDataReader')
-const odcApiClient = require('./odcApiClient')
-const ratingColorHelper = require('./ratingColorHelper')
+const abatementDataReader = require('./services/abatementDataReader')
+const odcApiClient = require('./services/odcApiClient')
+const ratingColorHelper = require('./services/ratingColorHelper')
 
 const app = express()
 

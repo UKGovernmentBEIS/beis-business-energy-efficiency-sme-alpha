@@ -27,7 +27,7 @@ You should receive an email with your API key, which you will need later.
 
 * Check out the code from Gitlab in to some appropriate location (e.g. `E:\Work`).
 ```
-git clone git@gitlab.softwire.com:softwire/beis-sme-alpha.git
+git clone git@github.com:UKGovernmentBEIS/beis-business-energy-efficiency-sme-alpha.git
 ```
 * Install dependencies via Yarn.
 ```
