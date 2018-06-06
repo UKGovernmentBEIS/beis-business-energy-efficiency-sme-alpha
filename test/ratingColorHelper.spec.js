@@ -1,5 +1,5 @@
 const expect = require('chai').expect
-const RatingColorHelper = require('../ratingColorHelper')
+const RatingColorHelper = require('../services/ratingColorHelper')
 
 describe('Rating Color Helper', function () {
   it('should return the correct color for rating', function () {
