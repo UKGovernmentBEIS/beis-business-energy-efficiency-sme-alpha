@@ -3,10 +3,12 @@
 .rating-view {
     .address {
         display: flex;
+        align-items: center;
         justify-content: space-between;
         margin: 30px 0;
 
         .rating {
+            flex-shrink: 0;
             color: black;
             border-radius: 50%;
             font-size: 3rem;
@@ -14,7 +16,6 @@
             width: 100px;
             height: 100px;
             line-height: 100px;
-            margin: auto;
             text-align: center;
         }
 
