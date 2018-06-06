@@ -1,0 +1,125 @@
+{
+  "EPC-C1": {
+    "text": "The default chiller efficiency is chosen. It is recommended that the chiller system be investigated to gain an understanding of its efficiency and possible improvements."
+  },
+  "EPC-C2": {
+    "text": "Chiller efficiency is low. Consider upgrading chiller plant."
+  },
+  "EPC-C3": {
+    "text": "Ductwork leakage is high. Inspect and seal ductwork."
+  },
+  "EPC-W1": {
+    "text": "Install more efficient water heater."
+  },
+  "EPC-W3": {
+    "text": "Improve insulation on DHW storage."
+  },
+  "EPC-W4": {
+    "text": "Add time control to DHW secondary circulation."
+  },
+  "EPC-W2": {
+    "text": "Consider replacing DHW system with point of use system."
+  },
+  "EPC-E1": {
+    "text": "Some floors are poorly insulated – introduce/improve insulation. Add insulation to the exposed surfaces of floors adjacent to underground, unheated spaces or exterior."
+  },
+  "EPC-E2": {
+    "text": "Roof is poorly insulated. Install/improve insulation of roof."
+  },
+  "EPC-E3": {
+    "text": "Some solid walls are poorly insulated – introduce/improve internal wall insulation."
+  },
+  "EPC-E4": {
+    "text": "Some walls have uninsulated cavities - introduce cavity wall insulation."
+  },
+  "EPC-E5": {
+    "text": "Some windows have high U-values - consider installing secondary glazing."
+  },
+  "EPC-E6": {
+    "text": "Some loft spaces are poorly insulated - install/improve insulation."
+  },
+  "EPC-E7": {
+    "text": "Carry out a pressure test, identify and treat identified air leakage. Enter result in EPC calculation."
+  },
+  "EPC-E8": {
+    "text": "Some glazing is poorly insulated. Replace/improve glazing and/or frames."
+  },
+  "EPC-F1": {
+    "text": "Consider switching from oil or LPG to natural gas."
+  },
+  "EPC-F2": {
+    "text": "Consider converting the existing boiler from coal to natural gas."
+  },
+  "EPC-F3": {
+    "text": "Consider switching from coal to biomass."
+  },
+  "EPC-F4": {
+    "text": "Consider switching from oil or LPG to biomass."
+  },
+  "EPC-F5": {
+    "text": "Consider switching from gas to biomass."
+  },
+  "EPC-F6": {
+    "text": "Consider switching from coal to oil."
+  },
+  "EPC-H2": {
+    "text": "Add time control to heating system."
+  },
+  "EPC-H5": {
+    "text": "Add local time control to heating system."
+  },
+  "EPC-H6": {
+    "text": "Add local temperature control to the heating system."
+  },
+  "EPC-H7": {
+    "text": "Add optimum start/stop to the heating system."
+  },
+  "EPC-H8": {
+    "text": "Add weather compensation controls to heating system."
+  },
+  "EPC-H1": {
+    "text": "Consider replacing heating boiler plant with high efficiency type."
+  },
+  "EPC-H3": {
+    "text": "Consider replacing heating boiler plant with a condensing type."
+  },
+  "EPC-H4": {
+    "text": "The default heat generator efficiency is chosen. It is recommended that the heat generator system be investigated to gain an understanding of its efficiency and possible improvements."
+  },
+  "EPC-L1": {
+    "text": "Replace 38mm diameter (T12) fluorescent tubes on failure with 26mm (T8) tubes."
+  },
+  "EPC-L2": {
+    "text": "Replace tungsten GLS lamps with CFLs: Payback period dependent on hours of use."
+  },
+  "EPC-L3": {
+    "text": "Replace high-pressure mercury discharge lamps with plug-in SON replacements."
+  },
+  "EPC-L5": {
+    "text": "Consider replacing T8 lamps with retrofit T5 conversion kit."
+  },
+  "EPC-L6": {
+    "text": "Replace high-pressure mercury discharge lamps with complete new lamp/gear SON (DL)."
+  },
+  "EPC-L7": {
+    "text": "Introduce HF (high frequency) ballasts for fluorescent tubes: Reduced number of fittings required."
+  },
+  "EPC-V1": {
+    "text": "In some spaces, the solar gain limit defined in the NCM is exceeded, which might cause overheating. Consider solar control measures such as the application of reflective coating or shading devices to windows."
+  },
+  "EPC-R1": {
+    "text": "Consider installing a ground source heat pump."
+  },
+  "EPC-R2": {
+    "text": "Consider installing building mounted wind turbine(s)."
+  },
+  "EPC-R3": {
+    "text": "Consider installing solar water heating."
+  },
+  "EPC-R4": {
+    "text": "Consider installing PV."
+  },
+  "EPC-R5": {
+    "text": "Consider installing an air source heat pump."
+  }
+}

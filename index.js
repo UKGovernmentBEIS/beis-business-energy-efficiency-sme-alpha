@@ -2,6 +2,7 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const pdf = require('html-pdf')
 
+const epcRecommendations = require('./services/epcRecommendations')
 const mapper = require('./services/mapper')
 const odcApiClient = require('./services/odcApiClient')
 
@@ -13,13 +14,13 @@ app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-  // Stub.
   res.redirect('/search')
 })
 
 app.get('/expert/:recommendationCode', (req, res) => {
-  // Stub.
-  res.render('expert')
+  const { recommendationCode } = req.params
+  const recommendation = epcRecommendations.getRecommendation(recommendationCode)
+  res.render('expert', { recommendation })
 })
 
 app.get('/rating/:certificateHash', (req, res) => {
@@ -37,7 +38,9 @@ app.get('/rating/:certificateHash/recommendations/EPC_:lmkKey.pdf', (req, res) =
 })
 
 app.get('/recommendation/:recommendationCode', (req, res) => {
-  res.render('recommendation')
+  const { recommendationCode } = req.params
+  const recommendation = epcRecommendations.getRecommendation(recommendationCode)
+  res.render('recommendation', { recommendation })
 })
 
 app.get('/search', (req, res) => {
