@@ -45,7 +45,7 @@ class OdcApiClient {
         } else if (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes') {
           this.getRecommendations('100000220150312070330').then(data => resolve({ ...data, isDummy: true }))
         } else {
-          resolve([])
+          resolve({ recommendations: [] })
         }
       })
     })
