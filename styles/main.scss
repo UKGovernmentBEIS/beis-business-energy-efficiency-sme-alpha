@@ -9,6 +9,12 @@ h2, h3, h4, h5, h6 {
   margin: 20px 0;
 }
 
-.alert p:last-child {
-  margin-bottom: 0;
+td, .alert {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+th, td {
+  word-wrap: break-word;
 }

@@ -13,19 +13,13 @@ app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
+  // Stub.
   res.redirect('/search')
 })
 
-app.get('/search', (req, res) => {
-  const { postcode } = req.query
-  if (!postcode) {
-    res.render('search')
-    return
-  }
-  odcApiClient.search(postcode).then(results => {
-    results = mapper.mapSearchResults(results)
-    res.render('search', { postcode, results })
-  })
+app.get('/expert/:recommendationCode', (req, res) => {
+  // Stub.
+  res.render('expert')
 })
 
 app.get('/rating/:certificateHash', (req, res) => {
@@ -38,8 +32,24 @@ app.get('/rating/:certificateHash', (req, res) => {
 })
 
 app.get('/rating/:certificateHash/recommendations/EPC_:lmkKey.pdf', (req, res) => {
-  // TODO: Improve stub PDF.
+  // Stub.
   pdf.create('<h1 style="font-family: Arial; margin: 2em;">Recommendations go here…</h1>').toStream((e, stream) => stream.pipe(res))
+})
+
+app.get('/recommendation/:recommendationCode', (req, res) => {
+  res.render('recommendation')
+})
+
+app.get('/search', (req, res) => {
+  const { postcode } = req.query
+  if (!postcode) {
+    res.render('search')
+    return
+  }
+  odcApiClient.search(postcode).then(results => {
+    results = mapper.mapSearchResults(results)
+    res.render('search', { postcode, results })
+  })
 })
 
 const port = process.env.PORT || 5000

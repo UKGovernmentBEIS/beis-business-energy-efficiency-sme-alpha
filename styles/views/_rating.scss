@@ -64,8 +64,12 @@
     margin: 20px 0 50px 0;
     table-layout: fixed;
 
-    th:not(:first-of-type) {
-      width: 15%;
+    th:first-of-type {
+      width: 50%;
+    }
+
+    th.find-an-expert {
+      width: 150px;
     }
   }
 }

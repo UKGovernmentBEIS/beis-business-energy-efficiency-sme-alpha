@@ -32,13 +32,18 @@
       <th>Approximate cost</th>
       <th>Repays cost in</th>
       <th>Effect on your EPC</th>
+      <th class="find-an-expert"></th>
     </tr>
     {{#each recommendations}}
       <tr>
-        <td>{{recommendation}}</td>
+        <td>
+          <p>{{recommendation}}</p>
+          <p><small><a href="/recommendation/{{recommendationCode}}">Learn more…</a></small></p>
+        </td>
         <td>£5,000</td>
         <td class="recommendation {{paybackTypeColor}}">{{paybackTypeTitle}}</td>
         <td>+1</td>
+        <td><a class="btn btn-info" href="/expert/{{recommendationCode}}">Find an expert</a></td>
       </tr>
     {{/each}}
   </table>
