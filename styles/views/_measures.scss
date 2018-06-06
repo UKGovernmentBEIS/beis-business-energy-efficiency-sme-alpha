@@ -1,14 +1,14 @@
 .measures-view {
-    .alert {
-        margin: 30px 0;
-    }
+  .alert {
+    margin: 30px 0;
+  }
 
-    .measures-table {
-        margin: 20px 0 50px 0;
-        table-layout: fixed;
+  .measures-table {
+    margin: 20px 0 50px 0;
+    table-layout: fixed;
 
-        th:not(:first-of-type) {
-            width: 20%;
-        }
+    th:not(:first-of-type) {
+      width: 20%;
     }
+  }
 }

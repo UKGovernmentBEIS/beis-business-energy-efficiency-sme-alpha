@@ -1,79 +1,64 @@
 @import '../colors';
 
 .rating-view {
-    .address {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin: 30px 0;
+  .address {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 0;
 
-        .rating {
-            flex-shrink: 0;
-            color: black;
-            border-radius: 50%;
-            font-size: 3rem;
-            font-weight: bold;
-            width: 100px;
-            height: 100px;
-            line-height: 100px;
-            text-align: center;
-        }
-
-        .a-rating {
-            background-color: $dark-green;
-        }
-
-        .b-rating {
-            background-color: $green;
-        }
-
-        .c-rating {
-            background-color: $light-green;
-        }
-
-        .d-rating {
-            background-color: $yellow;
-        }
-
-        .e-rating {
-            background-color: $orange;
-        }
-
-        .f-rating {
-            background-color: $dark-orange;
-        }
-
-        .g-rating {
-            background-color: $red;
-        }
+    .rating {
+      flex-shrink: 0;
+      color: black;
+      border-radius: 50%;
+      font-size: 3rem;
+      font-weight: bold;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
     }
 
-    .recommendation {
-        font-weight: bold;
-    }
+    $ratings: (
+      a: $dark-green,
+      b: $green,
+      c: $light-green,
+      d: $yellow,
+      e: $orange,
+      f: $dark-orange,
+      g: $red
+    );
 
-    .recommendation-good {
-        color: $dark-green;
+    @each $rating, $bgcolor in $ratings {
+      .#{$rating}-rating {
+        background-color: $bgcolor
+      }
     }
+  }
 
-    .recommendation-medium {
-        color: $orange;
+  .recommendation {
+    font-weight: bold;
+  }
+
+  $recommendation-grades: (
+    good: $dark-green,
+    medium: $orange,
+    bad: $red,
+    other: $grey
+  );
+
+  @each $grade, $color in $recommendation-grades {
+    .recommendation-#{$grade} {
+      color: $color
     }
+  }
 
-    .recommendation-bad {
-        color: $red;
+  .recommendations-table {
+    margin: 20px 0 50px 0;
+    table-layout: fixed;
+
+    th:not(:first-of-type) {
+      width: 15%;
     }
-
-    .recommendation-other {
-        color: $grey;
-    }
-
-    .recommendations-table {
-        margin: 20px 0 50px 0;
-        table-layout: fixed;
-
-        th:not(:first-of-type) {
-            width: 15%;
-        }
-    }
+  }
 }
