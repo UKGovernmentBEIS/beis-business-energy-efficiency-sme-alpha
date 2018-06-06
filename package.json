@@ -6,6 +6,7 @@
   "dependencies": {
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "html-pdf": "^2.2.0",
     "lodash": "^4.17.10",
     "moment": "^2.22.2",
     "node-sass": "^4.9.0",
@@ -16,7 +17,7 @@
     "sass": "node-sass styles/main.scss public/css/main.css",
     "sass:watch": "node-sass styles/main.scss public/css/main.css --watch",
     "debug": "nodemon --exec \"heroku local debug\" -e handlebars,js",
-    "livereload": "livereload . --debug --wait 500 --extraExts handlebars",
+    "livereload": "livereload . --debug --wait 1000 --extraExts handlebars",
     "start": "npm-run-all sass --parallel debug sass:watch livereload",
     "test": "mocha"
   },

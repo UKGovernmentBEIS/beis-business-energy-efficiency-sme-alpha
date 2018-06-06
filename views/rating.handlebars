@@ -21,6 +21,11 @@
   {{/if}}
 {{/with}}
 {{#if recommendations.length}}
+  <div class="actions">
+    <a class="btn btn-secondary" target="_blank" href="/rating/{{certificate.certificateHash}}/recommendations/EPC_{{certificate.lmkKey}}.pdf">
+      🡇 Download plan
+    </a>
+  </div>
   <table class="table table-hover recommendations-table">
     <tr>
       <th>Recommendation</th>

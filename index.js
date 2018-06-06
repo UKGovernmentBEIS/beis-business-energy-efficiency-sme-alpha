@@ -1,5 +1,6 @@
 const express = require('express')
 const handlebars = require('express-handlebars')
+const pdf = require('html-pdf')
 
 const mapper = require('./services/mapper')
 const odcApiClient = require('./services/odcApiClient')
@@ -34,6 +35,11 @@ app.get('/rating/:certificateHash', (req, res) => {
     recommendations = mapper.mapRecommendations(recommendations)
     res.render('rating', { certificate, recommendations })
   })
+})
+
+app.get('/rating/:certificateHash/recommendations/EPC_:lmkKey.pdf', (req, res) => {
+  // TODO: Improve stub PDF.
+  pdf.create('<h1 style="font-family: Arial; margin: 2em;">Recommendations go here…</h1>').toStream((e, stream) => stream.pipe(res))
 })
 
 const port = process.env.PORT || 5000
