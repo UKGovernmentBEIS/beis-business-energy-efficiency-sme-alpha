@@ -3,7 +3,6 @@ const handlebars = require('express-handlebars')
 const pdf = require('html-pdf')
 
 const epcRecommendations = require('./services/epcRecommendations')
-const mapper = require('./services/mapper')
 const odcApiClient = require('./services/odcApiClient')
 
 const app = express()
@@ -26,8 +25,6 @@ app.get('/expert/:recommendationCode', (req, res) => {
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificateAndRecommendations(certificateHash).then(({ certificate, recommendations }) => {
-    certificate = mapper.mapCertificate(certificate)
-    recommendations = mapper.mapRecommendations(recommendations)
     res.render('rating', { certificate, recommendations })
   })
 })
@@ -50,7 +47,6 @@ app.get('/search', (req, res) => {
     return
   }
   odcApiClient.search(postcode).then(results => {
-    results = mapper.mapSearchResults(results)
     res.render('search', { postcode, results })
   })
 })

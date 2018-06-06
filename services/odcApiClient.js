@@ -1,6 +1,8 @@
 const request = require('request')
 const urljoin = require('url-join')
 
+const mapper = require('./mapper')
+
 const EPC_BASE_URL = 'https://epc.opendatacommunities.org/api/v1/non-domestic/'
 
 const commonOptions = Object.freeze({
@@ -18,7 +20,7 @@ class OdcApiClient {
       request.get(options, (e, r, data) => {
         resolve(data ? data.rows : [])
       })
-    })
+    }).then(mapper.mapSearchResults)
   }
 
   getCertificateAndRecommendations (certificateHash) {
@@ -26,9 +28,8 @@ class OdcApiClient {
     const options = Object.assign({ url }, commonOptions)
     return new Promise((resolve, reject) => {
       request.get(options, (e, r, data) => {
-        const certificate = data.rows[0]
-        const lmkKey = certificate['lmk-key']
-        this.getRecommendations(lmkKey).then(recommendations => {
+        const certificate = mapper.mapCertificate(data.rows[0])
+        this.getRecommendations(certificate.lmkKey).then(recommendations => {
           resolve({ certificate, recommendations })
         })
       })
@@ -48,7 +49,7 @@ class OdcApiClient {
           resolve([])
         }
       })
-    })
+    }).then(mapper.mapRecommendations)
   }
 }
 
