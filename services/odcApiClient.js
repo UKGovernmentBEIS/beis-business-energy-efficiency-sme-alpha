@@ -28,8 +28,8 @@ class OdcApiClient {
       request.get(options, (e, r, data) => {
         const property = data.rows[0]
         const lmkKey = property['lmk-key']
-        this.getRecommendations(lmkKey).then(data => {
-          resolve({ property, ...data })
+        this.getRecommendations(lmkKey).then(recommendationsData => {
+          resolve({ property, ...recommendationsData })
         })
       })
     })
@@ -43,7 +43,7 @@ class OdcApiClient {
         if (r.statusCode !== 404) {
           resolve({ recommendations: data.rows })
         } else if (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes') {
-          this.getRecommendations('100000220150312070330').then(data => resolve({ ...data, isDummy: true }))
+          this.getRecommendations('100000220150312070330').then(dummyData => resolve({ ...dummyData, isDummy: true }))
         } else {
           resolve([])
         }
