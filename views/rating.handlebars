@@ -1,13 +1,25 @@
 <h1>Energy Recommendations</h1>
-<div class="address">
-  {{#with certificate}}
+{{#with certificate}}
+  <div class="address">
     <div>
       <h3>{{address}}</h3>
       <h5>Inspection date: {{inspectionDate}}</h5>
     </div>
     <div class="rating {{ratingClass}}">{{assetRatingBand}}</div>
-  {{/with}}
-</div>
+  </div>
+  {{#unless compliant}}
+    <div class="alert alert-danger">
+      <p><strong>⚠️ This property is not compliant.</strong></p>
+      <p>Properties must achieve at least an 'E' rating to be compliant with new legislation.</p>
+    </div>
+  {{/unless}}
+  {{#if outOfDate}}
+    <div class="alert alert-warning">
+      <p><strong>📅 This certificate is {{ageInYears}} years old.</strong></p>
+      <p>You may want to consider reassessment, especially if changes have been made to the property since this inspection.</p>
+    </div>
+  {{/if}}
+{{/with}}
 {{#if recommendations.length}}
   <table class="table table-hover recommendations-table">
     <tr>

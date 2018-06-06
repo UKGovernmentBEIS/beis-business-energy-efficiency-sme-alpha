@@ -6,10 +6,18 @@ exports.mapSearchResults = function (data) {
   return _.sortBy(properties, p => p.address.toLowerCase())
 }
 
+const CERTIFICATE_IN_DATE_LIMIT = 5
+const THRESHOLD_COMPLIANT_RATING_BAND = 'E'
+
 exports.mapCertificate = function (data) {
   const certificate = toCamelCaseProperties(data)
-  certificate.inspectionDate = moment(certificate.inspectionDate).format('DD/MM/YYYY')
-  certificate.ratingClass = `${certificate.assetRatingBand.toLowerCase()}-rating`
+  const date = moment(certificate.inspectionDate)
+  certificate.inspectionDate = date.format('DD/MM/YYYY')
+  certificate.ageInYears = moment().diff(date, 'years')
+  certificate.outOfDate = certificate.ageInYears > CERTIFICATE_IN_DATE_LIMIT
+  const band = certificate.assetRatingBand
+  certificate.ratingClass = `${band.toLowerCase()}-rating`
+  certificate.compliant = band.toUpperCase() <= THRESHOLD_COMPLIANT_RATING_BAND.toUpperCase()
   return certificate
 }
 
