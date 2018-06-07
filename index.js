@@ -16,12 +16,6 @@ app.get('/', (req, res) => {
   res.redirect('/search')
 })
 
-app.get('/whats-next/:recommendationCode', (req, res) => {
-  const { recommendationCode } = req.params
-  const recommendation = epcRecommendations.getRecommendation(recommendationCode)
-  res.render('whats-next', { recommendation })
-})
-
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificateAndRecommendations(certificateHash).then(({ certificate, recommendations }) => {
@@ -50,6 +44,12 @@ app.get('/search', (req, res) => {
   odcApiClient.search(postcode).then(results => {
     res.render('search', { postcode, results })
   })
+})
+
+app.get('/whats-next/:recommendationCode', (req, res) => {
+  const { recommendationCode } = req.params
+  const recommendation = epcRecommendations.getRecommendation(recommendationCode)
+  res.render('whats-next', { recommendation })
 })
 
 const port = process.env.PORT || 5000
