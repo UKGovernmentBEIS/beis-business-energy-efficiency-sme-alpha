@@ -6,59 +6,52 @@
     align-items: center;
     justify-content: space-between;
     margin: 30px 0;
+  }
 
-    .rating {
-      flex-shrink: 0;
-      color: black;
-      border-radius: 50%;
-      font-size: 3rem;
-      font-weight: bold;
-      width: 100px;
-      height: 100px;
-      line-height: 100px;
-      text-align: center;
+  .payback {
+    font-weight: bold;
+  }
+
+  $payback-grades: (
+    SHORT: $dark-green,
+    MEDIUM: $orange,
+    LONG: $red,
+    OTHER: $grey
+  );
+
+  @each $grade, $color in $payback-grades {
+    .payback-#{$grade} {
+      color: $color
     }
+  }
 
-    $ratings: (
-      a: $dark-green,
-      b: $green,
-      c: $light-green,
-      d: $yellow,
-      e: $orange,
-      f: $dark-orange,
-      g: $red
-    );
+  $co2-impact-tiers: (
+    HIGH: '↟',
+    MEDIUM: '↑',
+    LOW: '⇡'
+  );
 
-    @each $rating, $bgcolor in $ratings {
-      .#{$rating}-rating {
-        background-color: $bgcolor
+  .epc-effect {
+    display: flex;
+    align-items: flex-start;
+    .co2-impact {
+      margin-left: 5px;
+      font-size: 20px;
+      @each $tier, $arrow in $co2-impact-tiers {
+        &.co2-impact-#{$tier}::before {
+          content: $arrow;
+        }
       }
     }
   }
 
-  .recommendation {
-    font-weight: bold;
-  }
-
-  $recommendation-grades: (
-    good: $dark-green,
-    medium: $orange,
-    bad: $red,
-    other: $grey
-  );
-
-  @each $grade, $color in $recommendation-grades {
-    .recommendation-#{$grade} {
-      color: $color
-    }
-  }
 
   .recommendations-table {
     margin: 20px 0 50px 0;
     table-layout: fixed;
 
     th:first-of-type {
-      width: 50%;
+      width: 40%;
     }
 
     th.find-an-expert {

@@ -1,0 +1,23 @@
+.epc-rating-band {
+  flex-shrink: 0;
+  color: black;
+  border-radius: 50%;
+  font-weight: bold;
+  text-align: center;
+
+  $ratings: (
+    A: $dark-green,
+    B: $green,
+    C: $light-green,
+    D: $yellow,
+    E: $orange,
+    F: $dark-orange,
+    G: $red
+  );
+
+  @each $rating, $bgcolor in $ratings {
+    &.epc-rating-band-#{$rating} {
+      background-color: $bgcolor
+    }
+  }
+}
