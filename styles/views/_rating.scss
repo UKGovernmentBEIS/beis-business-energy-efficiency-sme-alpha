@@ -37,12 +37,12 @@
 
   .epc-effect {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     .co2-impact {
-      margin-left: 5px;
-      font-size: 20px;
       @each $tier, $arrow in $co2-impact-tiers {
         &.co2-impact-#{$tier}::before {
+          margin: 0 5px;
+          font-size: 20px;
           content: $arrow;
         }
       }
