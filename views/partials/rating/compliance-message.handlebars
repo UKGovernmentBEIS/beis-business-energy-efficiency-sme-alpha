@@ -1,0 +1,55 @@
+{{#if compliant}}
+  {{#switch tenure}}
+    {{#case 'Landlord'}}
+      <div class="compliant-message">
+        <p>
+          Increase the value of your property and get ahead of regulation by acting on your EPC recommendations.
+        </p>
+      </div>
+    {{/case}}
+    {{#case 'Tenant'}}
+      <div class="compliant-message">
+        <p>
+          Save money and reduce energy waste by acting on your energy effciency recommendations listed below.
+          Check what you can do, and what your landlord should be helping out with.
+        </p>
+      </div>
+    {{/case}}
+    {{#case 'Owner'}}
+      <div class="compliant-message">
+        <p>
+          Save your buisness money and reduce waste by acting on your energy effciency recommendations listed below.
+        </p>
+      </div>
+    {{/case}}
+  {{/switch}}
+{{else}}
+  {{#switch tenure}}
+    {{#case 'Landlord'}}
+      <div class="alert alert-danger">
+        <p><strong>⚠️ This property is not compliant.</strong></p>
+        <p>
+          It looks like your building isn’t compliant with the new MEES regulation.
+          Check the below recommendations for ways you can get compliant and avoid the fines.
+        </p>
+      </div>
+    {{/case}}
+    {{#case 'Tenant'}}
+      <div class="alert alert-info">
+        <p><strong>ℹ️ You deserve more!</strong></p>
+        <p>
+          Looks like your landlord needs to make changes to get compliant with new energy effciency regulations.
+          Take a look at the recommendations below and work out what you can do.
+        </p>
+      </div>
+    {{/case}}
+    {{#case 'Owner'}}
+      <div class="alert alert-warning">
+        <p><strong>⚠️ Save your buisness money and reduce waste!</strong></p>
+        <p>
+          Looks like your building is very inefficient, take a look at the recommendations below and work out what you can do.
+        </p>
+      </div>
+    {{/case}}
+  {{/switch}}
+{{/if}}

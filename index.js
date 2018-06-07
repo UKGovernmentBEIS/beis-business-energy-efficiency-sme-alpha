@@ -1,7 +1,8 @@
 const express = require('express')
-const handlebars = require('express-handlebars')
+const exphbs = require('express-handlebars')
 const pdf = require('html-pdf')
 
+const handlebarsHelpers = require('./helpers/handlebarsHelpers')
 const epcRecommendations = require('./services/epcRecommendations')
 const odcApiClient = require('./services/odcApiClient')
 
@@ -9,7 +10,8 @@ const app = express()
 
 app.use(express.static('public'))
 
-app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
+const hbs = exphbs.create({ defaultLayout: 'main', helpers: handlebarsHelpers })
+app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
