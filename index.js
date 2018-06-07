@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
-  odcApiClient.getCertificateAndRecommendations(certificateHash).then(({ certificate, recommendations }) => {
+  odcApiClient.getCertificateAndRecommendations(certificateHash, req.query.size).then(({ certificate, recommendations }) => {
     recommendations = recommendations.slice(0, 5) // Take top 5.
     res.render('rating', { certificate, recommendations, ...req.query })
   })

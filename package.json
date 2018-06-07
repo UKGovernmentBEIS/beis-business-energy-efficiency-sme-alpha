@@ -4,6 +4,7 @@
   "main": "index.js",
   "private": true,
   "dependencies": {
+    "accounting": "^0.4.1",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "html-pdf": "^2.2.0",

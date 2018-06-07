@@ -1,125 +1,699 @@
 {
   "EPC-C1": {
-    "text": "The default chiller efficiency is chosen. It is recommended that the chiller system be investigated to gain an understanding of its efficiency and possible improvements."
+    "text": "The default chiller efficiency is chosen. It is recommended that the chiller system be investigated to gain an understanding of its efficiency and possible improvements.",
+    "costs": {
+      "small": {
+        "low": 1000,
+        "high": 3000
+      },
+      "medium": {
+        "low": 5000,
+        "high": 9000
+      },
+      "large": {
+        "low": 17000,
+        "high": 30000
+      }
+    }
   },
   "EPC-C2": {
-    "text": "Chiller efficiency is low. Consider upgrading chiller plant."
+    "text": "Chiller efficiency is low. Consider upgrading chiller plant.",
+    "costs": {
+      "small": {
+        "low": 1100,
+        "high": 3300
+      },
+      "medium": {
+        "low": 5500,
+        "high": 9900
+      },
+      "large": {
+        "low": 18700,
+        "high": 33000
+      }
+    }
   },
   "EPC-C3": {
-    "text": "Ductwork leakage is high. Inspect and seal ductwork."
+    "text": "Ductwork leakage is high. Inspect and seal ductwork.",
+    "costs": {
+      "small": {
+        "low": 500,
+        "high": 1500
+      },
+      "medium": {
+        "low": 2500,
+        "high": 4500
+      },
+      "large": {
+        "low": 8500,
+        "high": 15000
+      }
+    }
   },
   "EPC-W1": {
-    "text": "Install more efficient water heater."
+    "text": "Install more efficient water heater.",
+    "costs": {
+      "small": {
+        "low": 1500,
+        "high": 4500
+      },
+      "medium": {
+        "low": 4500,
+        "high": 10500
+      },
+      "large": {
+        "low": 10500,
+        "high": 30000
+      }
+    }
   },
   "EPC-W3": {
-    "text": "Improve insulation on DHW storage."
+    "text": "Improve insulation on DHW storage.",
+    "costs": {
+      "small": {
+        "low": 400,
+        "high": 800
+      },
+      "medium": {
+        "low": 1600,
+        "high": 2400
+      },
+      "large": {
+        "low": 5200,
+        "high": 7800
+      }
+    }
   },
   "EPC-W4": {
-    "text": "Add time control to DHW secondary circulation."
+    "text": "Add time control to DHW secondary circulation.",
+    "costs": {
+      "small": {
+        "low": 100,
+        "high": 300
+      },
+      "medium": {
+        "low": 200,
+        "high": 600
+      },
+      "large": {
+        "low": 350,
+        "high": 1650
+      }
+    }
   },
   "EPC-W2": {
-    "text": "Consider replacing DHW system with point of use system."
+    "text": "Consider replacing DHW system with point of use system.",
+    "costs": {
+      "small": {
+        "low": 200,
+        "high": 600
+      },
+      "medium": {
+        "low": 600,
+        "high": 1400
+      },
+      "large": {
+        "low": 1400,
+        "high": 4000
+      }
+    }
   },
   "EPC-E1": {
-    "text": "Some floors are poorly insulated – introduce/improve insulation. Add insulation to the exposed surfaces of floors adjacent to underground, unheated spaces or exterior."
+    "text": "Some floors are poorly insulated – introduce/improve insulation. Add insulation to the exposed surfaces of floors adjacent to underground, unheated spaces or exterior.",
+    "costs": {
+      "small": {
+        "low": 3000,
+        "high": 5000
+      },
+      "medium": {
+        "low": 11000,
+        "high": 15000
+      },
+      "large": {
+        "low": 35000,
+        "high": 48000
+      }
+    }
   },
   "EPC-E2": {
-    "text": "Roof is poorly insulated. Install/improve insulation of roof."
+    "text": "Roof is poorly insulated. Install/improve insulation of roof.",
+    "costs": {
+      "small": {
+        "low": 5000,
+        "high": 8000
+      },
+      "medium": {
+        "low": 18000,
+        "high": 24000
+      },
+      "large": {
+        "low": 57000,
+        "high": 76500
+      }
+    }
   },
   "EPC-E3": {
-    "text": "Some solid walls are poorly insulated – introduce/improve internal wall insulation."
+    "text": "Some solid walls are poorly insulated – introduce/improve internal wall insulation.",
+    "costs": {
+      "small": {
+        "low": 2500,
+        "high": 4500
+      },
+      "medium": {
+        "low": 9500,
+        "high": 13500
+      },
+      "large": {
+        "low": 30500,
+        "high": 43500
+      }
+    }
   },
   "EPC-E4": {
-    "text": "Some walls have uninsulated cavities - introduce cavity wall insulation."
+    "text": "Some walls have uninsulated cavities - introduce cavity wall insulation.",
+    "costs": {
+      "small": {
+        "low": 2500,
+        "high": 4500
+      },
+      "medium": {
+        "low": 9500,
+        "high": 13500
+      },
+      "large": {
+        "low": 30500,
+        "high": 43500
+      }
+    }
   },
   "EPC-E5": {
-    "text": "Some windows have high U-values - consider installing secondary glazing."
+    "text": "Some windows have high U-values - consider installing secondary glazing.",
+    "costs": {
+      "small": {
+        "low": 3000,
+        "high": 5000
+      },
+      "medium": {
+        "low": 11000,
+        "high": 15000
+      },
+      "large": {
+        "low": 35000,
+        "high": 48000
+      }
+    }
   },
   "EPC-E6": {
-    "text": "Some loft spaces are poorly insulated - install/improve insulation."
+    "text": "Some loft spaces are poorly insulated - install/improve insulation.",
+    "costs": {
+      "small": {
+        "low": 1000,
+        "high": 3000
+      },
+      "medium": {
+        "low": 5000,
+        "high": 9000
+      },
+      "large": {
+        "low": 17000,
+        "high": 30000
+      }
+    }
   },
   "EPC-E7": {
-    "text": "Carry out a pressure test, identify and treat identified air leakage. Enter result in EPC calculation."
+    "text": "Carry out a pressure test, identify and treat identified air leakage. Enter result in EPC calculation.",
+    "costs": {
+      "small": {
+        "low": 1000,
+        "high": 2000
+      },
+      "medium": {
+        "low": 4000,
+        "high": 6000
+      },
+      "large": {
+        "low": 13000,
+        "high": 19500
+      }
+    }
   },
   "EPC-E8": {
-    "text": "Some glazing is poorly insulated. Replace/improve glazing and/or frames."
+    "text": "Some glazing is poorly insulated. Replace/improve glazing and/or frames.",
+    "costs": {
+      "small": {
+        "low": 2000,
+        "high": 3500
+      },
+      "medium": {
+        "low": 7500,
+        "high": 10500
+      },
+      "large": {
+        "low": 24000,
+        "high": 33750
+      }
+    }
   },
   "EPC-F1": {
-    "text": "Consider switching from oil or LPG to natural gas."
+    "text": "Consider switching from oil or LPG to natural gas.",
+    "costs": {
+      "small": {
+        "low": 1200,
+        "high": 2000
+      },
+      "medium": {
+        "low": 2800,
+        "high": 4400
+      },
+      "large": {
+        "low": 6000,
+        "high": 11200
+      }
+    }
   },
   "EPC-F2": {
-    "text": "Consider converting the existing boiler from coal to natural gas."
+    "text": "Consider converting the existing boiler from coal to natural gas.",
+    "costs": {
+      "small": {
+        "low": 2000,
+        "high": 3200
+      },
+      "medium": {
+        "low": 4600,
+        "high": 7000
+      },
+      "large": {
+        "low": 9800,
+        "high": 17600
+      }
+    }
   },
   "EPC-F3": {
-    "text": "Consider switching from coal to biomass."
+    "text": "Consider switching from coal to biomass.",
+    "costs": {
+      "small": {
+        "low": 4000,
+        "high": 6500
+      },
+      "medium": {
+        "low": 9250,
+        "high": 14250
+      },
+      "large": {
+        "low": 19750,
+        "high": 36000
+      }
+    }
   },
   "EPC-F4": {
-    "text": "Consider switching from oil or LPG to biomass."
+    "text": "Consider switching from oil or LPG to biomass.",
+    "costs": {
+      "small": {
+        "low": 1000,
+        "high": 2000
+      },
+      "medium": {
+        "low": 2500,
+        "high": 4500
+      },
+      "large": {
+        "low": 5500,
+        "high": 12000
+      }
+    }
   },
   "EPC-F5": {
-    "text": "Consider switching from gas to biomass."
+    "text": "Consider switching from gas to biomass.",
+    "costs": {
+      "small": {
+        "low": 8000,
+        "high": 12000
+      },
+      "medium": {
+        "low": 18000,
+        "high": 26000
+      },
+      "large": {
+        "low": 38000,
+        "high": 64000
+      }
+    }
   },
   "EPC-F6": {
-    "text": "Consider switching from coal to oil."
+    "text": "Consider switching from coal to oil.",
+    "costs": {
+      "small": {
+        "low": 2000,
+        "high": 3500
+      },
+      "medium": {
+        "low": 4750,
+        "high": 7750
+      },
+      "large": {
+        "low": 10250,
+        "high": 20000
+      }
+    }
   },
   "EPC-H2": {
-    "text": "Add time control to heating system."
+    "text": "Add time control to heating system.",
+    "costs": {
+      "small": {
+        "low": 250,
+        "high": 350
+      },
+      "medium": {
+        "low": 400,
+        "high": 600
+      },
+      "large": {
+        "low": 625,
+        "high": 1275
+      }
+    }
   },
   "EPC-H5": {
-    "text": "Add local time control to heating system."
+    "text": "Add local time control to heating system.",
+    "costs": {
+      "small": {
+        "low": 450,
+        "high": 600
+      },
+      "medium": {
+        "low": 975,
+        "high": 1275
+      },
+      "large": {
+        "low": 2025,
+        "high": 3000
+      }
+    }
   },
   "EPC-H6": {
-    "text": "Add local temperature control to the heating system."
+    "text": "Add local temperature control to the heating system.",
+    "costs": {
+      "small": {
+        "low": 150,
+        "high": 300
+      },
+      "medium": {
+        "low": 375,
+        "high": 675
+      },
+      "large": {
+        "low": 825,
+        "high": 1800
+      }
+    }
   },
   "EPC-H7": {
-    "text": "Add optimum start/stop to the heating system."
+    "text": "Add optimum start/stop to the heating system.",
+    "costs": {
+      "small": {
+        "low": 150,
+        "high": 300
+      },
+      "medium": {
+        "low": 262.5,
+        "high": 562.5
+      },
+      "large": {
+        "low": 431.25,
+        "high": 1406.25
+      }
+    }
   },
   "EPC-H8": {
-    "text": "Add weather compensation controls to heating system."
+    "text": "Add weather compensation controls to heating system.",
+    "costs": {
+      "small": {
+        "low": 800,
+        "high": 1400
+      },
+      "medium": {
+        "low": 1900,
+        "high": 3100
+      },
+      "large": {
+        "low": 4100,
+        "high": 8000
+      }
+    }
   },
   "EPC-H1": {
-    "text": "Consider replacing heating boiler plant with high efficiency type."
+    "text": "Consider replacing heating boiler plant with high efficiency type.",
+    "costs": {
+      "small": {
+        "low": 1500,
+        "high": 4000
+      },
+      "medium": {
+        "low": 2875,
+        "high": 7875
+      },
+      "large": {
+        "low": 4937.5,
+        "high": 21187.5
+      }
+    }
   },
   "EPC-H3": {
-    "text": "Consider replacing heating boiler plant with a condensing type."
+    "text": "Consider replacing heating boiler plant with a condensing type.",
+    "costs": {
+      "small": {
+        "low": 2500,
+        "high": 4500
+      },
+      "medium": {
+        "low": 4250,
+        "high": 8250
+      },
+      "large": {
+        "low": 6875,
+        "high": 19875
+      }
+    }
   },
   "EPC-H4": {
-    "text": "The default heat generator efficiency is chosen. It is recommended that the heat generator system be investigated to gain an understanding of its efficiency and possible improvements."
+    "text": "The default heat generator efficiency is chosen. It is recommended that the heat generator system be investigated to gain an understanding of its efficiency and possible improvements.",
+    "costs": {
+      "small": {
+        "low": 1000,
+        "high": 3000
+      },
+      "medium": {
+        "low": 3000,
+        "high": 7000
+      },
+      "large": {
+        "low": 7000,
+        "high": 20000
+      }
+    }
   },
   "EPC-L1": {
-    "text": "Replace 38mm diameter (T12) fluorescent tubes on failure with 26mm (T8) tubes."
+    "text": "Replace 38mm diameter (T12) fluorescent tubes on failure with 26mm (T8) tubes.",
+    "costs": {
+      "small": {
+        "low": 200,
+        "high": 450
+      },
+      "medium": {
+        "low": 850,
+        "high": 1350
+      },
+      "large": {
+        "low": 2800,
+        "high": 4425
+      }
+    }
   },
   "EPC-L2": {
-    "text": "Replace tungsten GLS lamps with CFLs: Payback period dependent on hours of use."
+    "text": "Replace tungsten GLS lamps with CFLs: Payback period dependent on hours of use.",
+    "costs": {
+      "small": {
+        "low": 300,
+        "high": 500
+      },
+      "medium": {
+        "low": 1100,
+        "high": 1500
+      },
+      "large": {
+        "low": 3500,
+        "high": 4800
+      }
+    }
   },
   "EPC-L3": {
-    "text": "Replace high-pressure mercury discharge lamps with plug-in SON replacements."
+    "text": "Replace high-pressure mercury discharge lamps with plug-in SON replacements.",
+    "costs": {
+      "small": {
+        "low": 250,
+        "high": 750
+      },
+      "medium": {
+        "low": 1250,
+        "high": 2250
+      },
+      "large": {
+        "low": 4250,
+        "high": 7500
+      }
+    }
   },
   "EPC-L5": {
-    "text": "Consider replacing T8 lamps with retrofit T5 conversion kit."
+    "text": "Consider replacing T8 lamps with retrofit T5 conversion kit.",
+    "costs": {
+      "small": {
+        "low": 200,
+        "high": 600
+      },
+      "medium": {
+        "low": 1000,
+        "high": 1800
+      },
+      "large": {
+        "low": 3400,
+        "high": 6000
+      }
+    }
   },
   "EPC-L6": {
-    "text": "Replace high-pressure mercury discharge lamps with complete new lamp/gear SON (DL)."
+    "text": "Replace high-pressure mercury discharge lamps with complete new lamp/gear SON (DL).",
+    "costs": {
+      "small": {
+        "low": 600,
+        "high": 1800
+      },
+      "medium": {
+        "low": 3000,
+        "high": 5400
+      },
+      "large": {
+        "low": 10200,
+        "high": 18000
+      }
+    }
   },
   "EPC-L7": {
-    "text": "Introduce HF (high frequency) ballasts for fluorescent tubes: Reduced number of fittings required."
+    "text": "Introduce HF (high frequency) ballasts for fluorescent tubes: Reduced number of fittings required.",
+    "costs": {
+      "small": {
+        "low": 200,
+        "high": 600
+      },
+      "medium": {
+        "low": 1000,
+        "high": 1800
+      },
+      "large": {
+        "low": 3400,
+        "high": 6000
+      }
+    }
   },
   "EPC-V1": {
-    "text": "In some spaces, the solar gain limit defined in the NCM is exceeded, which might cause overheating. Consider solar control measures such as the application of reflective coating or shading devices to windows."
+    "text": "In some spaces, the solar gain limit defined in the NCM is exceeded, which might cause overheating. Consider solar control measures such as the application of reflective coating or shading devices to windows.",
+    "costs": {
+      "small": {
+        "low": 100,
+        "high": 300
+      },
+      "medium": {
+        "low": 500,
+        "high": 900
+      },
+      "large": {
+        "low": 1700,
+        "high": 3000
+      }
+    }
   },
   "EPC-R1": {
-    "text": "Consider installing a ground source heat pump."
+    "text": "Consider installing a ground source heat pump.",
+    "costs": {
+      "small": {
+        "low": 32000,
+        "high": 40000
+      },
+      "medium": {
+        "low": 50000,
+        "high": 66000
+      },
+      "large": {
+        "low": 77000,
+        "high": 129000
+      }
+    }
   },
   "EPC-R2": {
-    "text": "Consider installing building mounted wind turbine(s)."
+    "text": "Consider installing building mounted wind turbine(s).",
+    "costs": {
+      "small": {
+        "low": 7000,
+        "high": 9500
+      },
+      "medium": {
+        "low": 11125,
+        "high": 16125
+      },
+      "large": {
+        "low": 17312.5,
+        "high": 33562.5
+      }
+    }
   },
   "EPC-R3": {
-    "text": "Consider installing solar water heating."
+    "text": "Consider installing solar water heating.",
+    "costs": {
+      "small": {
+        "low": 4000,
+        "high": 6000
+      },
+      "medium": {
+        "low": 6500,
+        "high": 10500
+      },
+      "large": {
+        "low": 10250,
+        "high": 23250
+      }
+    }
   },
   "EPC-R4": {
-    "text": "Consider installing PV."
+    "text": "Consider installing PV.",
+    "costs": {
+      "small": {
+        "low": 9000,
+        "high": 12000
+      },
+      "medium": {
+        "low": 14250,
+        "high": 20250
+      },
+      "large": {
+        "low": 22125,
+        "high": 41625
+      }
+    }
   },
   "EPC-R5": {
-    "text": "Consider installing an air source heat pump."
+    "text": "Consider installing an air source heat pump.",
+    "costs": {
+      "small": {
+        "low": 17000,
+        "high": 22000
+      },
+      "medium": {
+        "low": 26750,
+        "high": 36750
+      },
+      "large": {
+        "low": 41375,
+        "high": 73875
+      }
+    }
   }
 }

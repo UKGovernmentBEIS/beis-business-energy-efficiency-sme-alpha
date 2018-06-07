@@ -23,20 +23,20 @@ class OdcApiClient {
     }).then(mapper.mapSearchResults)
   }
 
-  getCertificateAndRecommendations (certificateHash) {
+  getCertificateAndRecommendations (certificateHash, size) {
     const url = urljoin(EPC_BASE_URL, 'certificate', certificateHash)
     const options = Object.assign({ url }, commonOptions)
     return new Promise((resolve, reject) => {
       request.get(options, (e, r, data) => {
         const certificate = mapper.mapCertificate(data.rows[0])
-        this.getRecommendations(certificate.lmkKey, certificate.assetRatingBand).then(recommendations => {
+        this.getRecommendations(certificate.lmkKey, certificate.assetRatingBand, size).then(recommendations => {
           resolve({ certificate, recommendations })
         })
       })
     })
   }
 
-  getRecommendations (lmkKey, assetRatingBand) {
+  getRecommendations (lmkKey, assetRatingBand, size) {
     const url = urljoin(EPC_BASE_URL, 'recommendations', lmkKey)
     const options = Object.assign({ url }, commonOptions)
     return new Promise((resolve, reject) => {
@@ -49,7 +49,7 @@ class OdcApiClient {
           resolve([])
         }
       })
-    }).then(data => mapper.mapRecommendations(data, assetRatingBand))
+    }).then(data => mapper.mapRecommendations(data, assetRatingBand, size))
   }
 }
 

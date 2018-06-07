@@ -1,6 +1,8 @@
 const _ = require('lodash')
 const moment = require('moment')
 
+const epcRecommendations = require('./epcRecommendations')
+
 exports.mapSearchResults = function (data) {
   const properties = data.map(toCamelCaseProperties)
   return _.sortBy(properties, p => p.address.toLowerCase())
@@ -37,16 +39,18 @@ const CO2_IMPACT_MAPPINGS = {
   'LOW': { bandImpact: 0 }
 }
 
-exports.mapRecommendations = function (data, currentBand) {
+exports.mapRecommendations = function (data, currentBand, size) {
   const recommendations = data.map(toCamelCaseProperties)
   recommendations.forEach(recommendation => {
-    const paybackTypeMapping = PAYBACK_TYPE_MAPPINGS[recommendation.paybackType]
+    const { recommendationCode, paybackType, co2Impact } = recommendation
+    const paybackTypeMapping = PAYBACK_TYPE_MAPPINGS[paybackType]
     recommendation.paybackTypeOrder = paybackTypeMapping.order
     recommendation.paybackTypeTitle = paybackTypeMapping.title
     if (currentBand) {
-      const co2ImpactMapping = CO2_IMPACT_MAPPINGS[recommendation.co2Impact]
+      const co2ImpactMapping = CO2_IMPACT_MAPPINGS[co2Impact]
       recommendation.bandAfter = getBandAfter(currentBand, co2ImpactMapping.bandImpact)
     }
+    recommendation.costs = epcRecommendations.getCosts(recommendationCode, paybackType, size || 'Medium')
   })
   return _.sortBy(recommendations, ['paybackTypeOrder', 'bandAfter'])
 }

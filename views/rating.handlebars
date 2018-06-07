@@ -32,8 +32,16 @@
           <p>{{recommendation}}</p>
           <p><small><a href="/recommendation/{{recommendationCode}}">Learn more…</a></small></p>
         </td>
-        <td>£5,000</td>
-        <td>£100</td>
+        <td>
+          {{#if costs}}
+            {{costs.low}} - {{costs.high}}
+          {{/if}}
+        </td>
+        <td>
+          {{#if costs}}
+            {{costs.annualSavings}}
+          {{/if}}
+        </td>
         <td class="payback payback-{{paybackType}}">{{paybackTypeTitle}}</td>
         <td class="epc-effect">
           {{> epc-rating-band band=bandAfter size=30}}
