@@ -50,12 +50,16 @@
     margin: 20px 0 50px 0;
     table-layout: fixed;
 
-    th:first-of-type {
-      width: 40%;
-    }
+    $columns: (
+      measure: 40%,
+      cost: 160px,
+      next: 140px
+    );
 
-    th.find-an-expert {
-      width: 150px;
+    @each $column, $width in $columns {
+      th.#{$column}-column {
+        width: $width
+      }
     }
   }
 }

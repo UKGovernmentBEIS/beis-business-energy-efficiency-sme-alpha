@@ -18,39 +18,43 @@
 {{/with}}
 {{#if recommendations.length}}
   <table class="table table-hover recommendations-table">
-    <tr>
-      <th>Recommended measures</th>
-      <th>Indicative cost</th>
-      <th>Typical savings per year</th>
-      <th>Repays cost in</th>
-      <th>Impact on EPC rating</th>
-      <th class="find-an-expert"></th>
-    </tr>
-    {{#each recommendations}}
+    <thead>
       <tr>
-        <td>
-          <p>{{recommendation}}</p>
-          <p><small><a href="/recommendation/{{recommendationCode}}">Learn more…</a></small></p>
-        </td>
-        <td>
-          {{#if costs}}
-            {{costs.low}} - {{costs.high}}
-          {{/if}}
-        </td>
-        <td>
-          {{#if costs}}
-            {{costs.annualSavings}}
-          {{/if}}
-        </td>
-        <td class="payback payback-{{paybackType}}">{{paybackTypeTitle}}</td>
-        <td class="epc-effect">
-          {{> epc-rating-band band=bandAfter size=30}}
-          <div class="co2-impact co2-impact-{{co2Impact}}"></div>
-          <div><small>{{co2Impact}}</small></div>
-        </td>
-        <td><a class="btn btn-info" href="/whats-next/{{recommendationCode}}">What's next?</a></td>
+        <th class="measure-column">Recommended measures</th>
+        <th class="cost-column">Indicative cost</th>
+        <th class="savings-column">Typical savings per year</th>
+        <th class="payback-column">Repays cost in</th>
+        <th class="rating-column">Impact on EPC rating</th>
+        <th class="next-column"></th>
       </tr>
-    {{/each}}
+    </thead>
+    <tbody>
+      {{#each recommendations}}
+        <tr>
+          <td>
+            <p>{{recommendation}}</p>
+            <p><small><a href="/recommendation/{{recommendationCode}}">Learn more…</a></small></p>
+          </td>
+          <td>
+            {{#if costs}}
+              {{costs.low}} - {{costs.high}}
+            {{/if}}
+          </td>
+          <td>
+            {{#if costs}}
+              {{costs.annualSavings}}
+            {{/if}}
+          </td>
+          <td class="payback payback-{{paybackType}}">{{paybackTypeTitle}}</td>
+          <td class="epc-effect">
+            {{> epc-rating-band band=bandAfter size=30}}
+            <div class="co2-impact co2-impact-{{co2Impact}}"></div>
+            <div><small>{{co2Impact}}</small></div>
+          </td>
+          <td><a class="btn btn-info" href="/whats-next/{{recommendationCode}}">What's next?</a></td>
+        </tr>
+      {{/each}}
+    </tbody>
   </table>
   <div class="actions">
     <a class="btn btn-secondary" target="_blank" href="/rating/{{certificate.certificateHash}}/recommendations/EPC_{{certificate.lmkKey}}.pdf">
