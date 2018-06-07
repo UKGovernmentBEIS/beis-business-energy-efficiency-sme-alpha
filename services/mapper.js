@@ -22,7 +22,7 @@ exports.mapCertificate = function (data) {
 }
 
 const PAYBACK_TYPE_MAPPINGS = {
-  'SHORT': { order: 0, title: '0-2 years', class: 'recommendation-good' },
+  'SHORT': { order: 0, title: '1-2 years', class: 'recommendation-good' },
   'MEDIUM': { order: 1, title: '3-6 years', class: 'recommendation-medium' },
   'LONG': { order: 2, title: '7+ years', class: 'recommendation-bad' },
   'OTHER': { order: 3, title: '-', class: 'recommendation-other' }
