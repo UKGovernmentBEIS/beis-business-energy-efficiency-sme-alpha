@@ -1,0 +1,22 @@
+<h1>Home</h1>
+<form action="/search">
+  <label>Size of premises</label>
+  <div class="form-group">
+    {{#each sizes}}
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="size-{{this}}" name="size" class="custom-control-input" value="{{this}}">
+        <label class="custom-control-label" for="size-{{this}}">{{this}}</label>
+      </div>
+    {{/each}}
+  </div>
+  <label>Tenure status</label>
+  <div class="form-group">
+    {{#each tenures}}
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" id="tenure-{{this}}" name="tenure" class="custom-control-input" value="{{this}}">
+        <label class="custom-control-label" for="tenure-{{this}}">{{this}}</label>
+      </div>
+    {{/each}}
+  </div>
+  <button class="btn btn-primary" type="submit">Start</button>
+</form>

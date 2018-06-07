@@ -13,14 +13,16 @@ app.engine('handlebars', handlebars({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 app.get('/', (req, res) => {
-  res.redirect('/search')
+  const sizes = ['Small', 'Medium', 'Large']
+  const tenures = ['Landlord', 'Tenant', 'Owner']
+  res.render('home', { sizes, tenures })
 })
 
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificateAndRecommendations(certificateHash).then(({ certificate, recommendations }) => {
     recommendations = recommendations.slice(0, 5) // Take top 5.
-    res.render('rating', { certificate, recommendations })
+    res.render('rating', { certificate, recommendations, ...req.query })
   })
 })
 
@@ -36,13 +38,13 @@ app.get('/recommendation/:recommendationCode', (req, res) => {
 })
 
 app.get('/search', (req, res) => {
-  const { postcode } = req.query
+  const { postcode, ...query } = req.query
   if (!postcode) {
-    res.render('search')
+    res.render('search', { ...query })
     return
   }
   odcApiClient.search(postcode).then(results => {
-    res.render('search', { postcode, results })
+    res.render('search', { postcode, results, ...query })
   })
 })
 
