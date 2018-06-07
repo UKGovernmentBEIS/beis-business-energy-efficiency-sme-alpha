@@ -16,10 +16,10 @@ app.get('/', (req, res) => {
   res.redirect('/search')
 })
 
-app.get('/expert/:recommendationCode', (req, res) => {
+app.get('/whats-next/:recommendationCode', (req, res) => {
   const { recommendationCode } = req.params
   const recommendation = epcRecommendations.getRecommendation(recommendationCode)
-  res.render('expert', { recommendation })
+  res.render('whats-next', { recommendation })
 })
 
 app.get('/rating/:certificateHash', (req, res) => {
