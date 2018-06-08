@@ -28,7 +28,10 @@ app.get('/rating/:certificateHash', (req, res) => {
 })
 
 app.get('/rating/:certificateHash/recommendations/EPC_:lmkKey.pdf', (req, res) => {
-  pdf.create('<h1 style="font-family: sans-serif; margin: 2em;">Energy Recommendations</h1>').toStream((e, stream) => stream.pipe(res))
+  hbs.getTemplate('views/pdf/rating-pdf.handlebars').then(pdfTemplate => {
+    const html = pdfTemplate({ /* context */ })
+    pdf.create(html).toStream((e, stream) => stream.pipe(res))
+  })
 })
 
 app.get('/recommendation/:recommendationCode', (req, res) => {
