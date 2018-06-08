@@ -31,7 +31,7 @@ class OdcApiClient {
         const certificate = mapper.mapCertificate(data.rows[0])
         this.getRecommendations(certificate.lmkKey, certificate.assetRatingBand, size).then(recommendations => {
           resolve({ certificate, recommendations })
-        })
+        }).catch(reject)
       })
     })
   }
@@ -44,7 +44,7 @@ class OdcApiClient {
         if (r.statusCode !== 404) {
           resolve(data.rows)
         } else if (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes') {
-          this.getRecommendations('100000220150312070330', assetRatingBand).then(resolve)
+          this.getRecommendations('100000220150312070330', assetRatingBand).then(resolve).catch(reject)
         } else {
           resolve([])
         }

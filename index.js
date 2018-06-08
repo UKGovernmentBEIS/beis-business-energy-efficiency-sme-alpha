@@ -24,14 +24,14 @@ app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificateAndRecommendations(certificateHash, req.query.size).then(({ certificate, recommendations }) => {
     res.render('rating', { certificate, recommendations, ...req.query })
-  })
+  }).catch(onError(res))
 })
 
 app.get('/rating/:certificateHash/recommendations/EPC_:lmkKey.pdf', (req, res) => {
   hbs.getTemplate('views/pdf/rating-pdf.handlebars').then(pdfTemplate => {
     const html = pdfTemplate({ /* context */ })
     pdf.create(html).toStream((e, stream) => stream.pipe(res))
-  })
+  }).catch(onError(res))
 })
 
 app.get('/recommendation/:recommendationCode', (req, res) => {
@@ -48,7 +48,7 @@ app.get('/search', (req, res) => {
   }
   odcApiClient.search(postcode).then(results => {
     res.render('search', { postcode, results, ...query })
-  })
+  }).catch(onError(res))
 })
 
 app.get('/whats-next/:recommendationCode', (req, res) => {
@@ -56,6 +56,25 @@ app.get('/whats-next/:recommendationCode', (req, res) => {
   const recommendation = epcRecommendations.getRecommendation(recommendationCode)
   res.render('whats-next', { recommendation })
 })
+
+// Error handling
+
+// Handle 404
+app.use(function (req, res) {
+  res.status(404).render('error/404')
+})
+
+// Handle 500
+app.use(function (error, req, res, next) {
+  onError(res)(error)
+})
+
+function onError (res) {
+  return error => {
+    console.error(error)
+    res.status(500).render('error/500')
+  }
+}
 
 const port = process.env.PORT || 5000
 app.listen(port, () => console.log(`Listening on port ${port}.`))
