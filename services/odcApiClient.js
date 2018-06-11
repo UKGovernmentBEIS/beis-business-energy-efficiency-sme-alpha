@@ -1,4 +1,4 @@
-const request = require('request')
+const rp = require('request-promise')
 const urljoin = require('url-join')
 
 const mapper = require('./mapper')
@@ -16,22 +16,17 @@ class OdcApiClient {
     const url = urljoin(EPC_BASE_URL, 'search')
     const qs = { postcode }
     const options = Object.assign({ url, qs }, commonOptions)
-    return new Promise((resolve, reject) => {
-      request.get(options, (e, r, data) => {
-        resolve(data ? data.rows : [])
-      })
-    }).then(mapper.mapSearchResults)
+    return rp.get(options).then(data => data ? data.rows : []).then(mapper.mapSearchResults)
   }
 
   getCertificateAndRecommendations (certificateHash, size) {
     const url = urljoin(EPC_BASE_URL, 'certificate', certificateHash)
     const options = Object.assign({ url }, commonOptions)
-    return new Promise((resolve, reject) => {
-      request.get(options, (e, r, data) => {
-        const certificate = mapper.mapCertificate(data.rows[0])
-        this.getRecommendations(certificate.lmkKey, certificate.assetRatingBand, size).then(recommendations => {
-          resolve({ certificate, recommendations })
-        }).catch(reject)
+    return rp.get(options).then(data => {
+      const certificate = mapper.mapCertificate(data.rows[0])
+      const { lmkKey, assetRatingBand } = certificate
+      return this.getRecommendations(lmkKey, assetRatingBand, size).then(recommendations => {
+        return { certificate, recommendations }
       })
     })
   }
@@ -39,17 +34,15 @@ class OdcApiClient {
   getRecommendations (lmkKey, assetRatingBand, size) {
     const url = urljoin(EPC_BASE_URL, 'recommendations', lmkKey)
     const options = Object.assign({ url }, commonOptions)
-    return new Promise((resolve, reject) => {
-      request.get(options, (e, r, data) => {
-        if (r.statusCode !== 404) {
-          resolve(data.rows)
-        } else if (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes') {
-          this.getRecommendations('100000220150312070330', assetRatingBand).then(resolve).catch(reject)
+    return rp.get(options).then(data => data.rows).then(data => mapper.mapRecommendations(data, assetRatingBand, size))
+      .catch(error => {
+        if (error.name === 'StatusCodeError' && error.response.statusCode === 404) {
+          const useDummyRecommendations = (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes')
+          return useDummyRecommendations ? this.getRecommendations('100000220150312070330', assetRatingBand) : []
         } else {
-          resolve([])
+          throw error
         }
       })
-    }).then(data => mapper.mapRecommendations(data, assetRatingBand, size))
   }
 }
 
