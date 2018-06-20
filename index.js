@@ -5,6 +5,8 @@ const pdf = require('html-pdf')
 const handlebarsHelpers = require('./helpers/handlebarsHelpers')
 const epcRecommendations = require('./services/epcRecommendations')
 const odcApiClient = require('./services/odcApiClient')
+const fs = require('fs')
+const csv = require('csv-parser')
 
 const app = express()
 
@@ -61,7 +63,15 @@ app.get('/search', (req, res) => {
 app.get('/whats-next/:recommendationCode', (req, res) => {
   const { recommendationCode } = req.params
   const recommendation = epcRecommendations.getRecommendation(recommendationCode)
-  res.render('whats-next', { recommendation })
+  const providers = []
+  fs.createReadStream('./data/stubProviderData.csv')
+    .pipe(csv())
+    .on('data', data => {
+      // console.log({company: data.COMPANY, website: data.WEBSITE, number: data.NUMBER})
+      providers.push({company: data.COMPANY, website: data.WEBSITE, number: data.NUMBER})
+    }).on('end', () => {
+      res.render('whats-next', { recommendation, providers })
+    })
 })
 
 // Error handling
