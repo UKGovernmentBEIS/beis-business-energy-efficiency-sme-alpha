@@ -1,7 +1,7 @@
 @import '../colors';
 
-.rating-view, .rating-landlord-view, .rating-owner-view, .rating-landlord-basic-view, .rating-owner-basic-view, {
-  .address {
+.rating-view, .rating-basic-view, .rating-landlord-view, .rating-owner-view, {
+  .epc-heading {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -44,7 +44,6 @@
       }
     }
   }
-
 
   .recommendations-table {
     margin: 20px 0 50px 0;

@@ -34,9 +34,8 @@ app.get('/rating/:certificateHash', (req, res) => {
 app.get('/rating2/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificateAndRecommendations(certificateHash, req.query.size).then(({ certificate, recommendations }) => {
-    req.query.tenure === 'Landlord'
-      ? res.render('rating-landlord-basic', { certificate, recommendations, ...req.query })
-      : res.render('rating-owner-basic', { certificate, recommendations, ...req.query })
+    const isLandlord = req.query.tenure === 'Landlord'
+    res.render('rating-basic', { isLandlord, certificate, recommendations, ...req.query })
   }).catch(onError(res))
 })
 
