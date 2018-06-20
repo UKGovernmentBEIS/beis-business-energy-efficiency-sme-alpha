@@ -1,17 +1,18 @@
 <h1>Find a Local Provider</h1>
+{{#if isLandlord}}
+<p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help 
+  you get accurate cost information and estimate the impact any changes you make will have on your EPC rating.</p>
+{{else}}
+<p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help 
+  you get accurate cost information and estimate the impact changes any changes you make will have on your monthly bills!</p>
+{{/if}}
 <div>
+  <p class="lead heading">Your recommendation</p>
   <p class="lead">
     {{recommendation.text}}
   </p>
 </div>
 
-{{#if isLandlord}}
-<p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help 
-  you get accurate cost information and estimate the impact changes will have on your EPC rating.</p>
-{{else}}
-<p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help 
-  you get accurate cost information and estimate the impact changes will have on your monthly bills!</p>
-{{/if}}
 
 <table class="table table-hover providers-table">
   <thead>
