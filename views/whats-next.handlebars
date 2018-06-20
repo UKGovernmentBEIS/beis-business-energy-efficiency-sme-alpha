@@ -4,7 +4,15 @@
     {{recommendation.text}}
   </p>
 </div>
-<p class="table-heading">Below are local providers that can help with this recommendation.</p>
+
+{{#if isLandlord}}
+<p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help 
+  you get accurate cost information and estimate the impact changes will have on your EPC rating.</p>
+{{else}}
+<p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help 
+  you get accurate cost information and estimate the impact changes will have on your monthly bills!</p>
+{{/if}}
+
 <table class="table table-hover providers-table">
   <thead>
     <tr>
