@@ -1,6 +1,6 @@
 @import '../colors';
 
-.rating-view {
+.rating-view, .rating2-view {
   .address {
     display: flex;
     align-items: center;
@@ -61,5 +61,12 @@
         width: $width
       }
     }
+  }
+
+  .changeViewButton {
+    margin-top: 500px;
+    padding: 40px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 30px;
   }
 }

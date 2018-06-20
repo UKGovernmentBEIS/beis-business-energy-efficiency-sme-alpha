@@ -27,6 +27,13 @@ app.get('/rating/:certificateHash', (req, res) => {
   }).catch(onError(res))
 })
 
+app.get('/rating2/:certificateHash', (req, res) => {
+  const { certificateHash } = req.params
+  odcApiClient.getCertificateAndRecommendations(certificateHash, req.query.size).then(({ certificate, recommendations }) => {
+    res.render('rating2', { certificate, recommendations, ...req.query })
+  }).catch(onError(res))
+})
+
 app.get('/rating/:certificateHash/recommendations/EPC_:lmkKey.pdf', (req, res) => {
   hbs.getTemplate('views/pdf/rating-pdf.handlebars').then(pdfTemplate => {
     const html = pdfTemplate({ /* context */ })
