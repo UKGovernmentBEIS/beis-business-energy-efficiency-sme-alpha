@@ -25,14 +25,18 @@ app.get('/', (req, res) => {
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificateAndRecommendations(certificateHash, req.query.size).then(({ certificate, recommendations }) => {
-    res.render('rating', { certificate, recommendations, ...req.query })
+    req.query.tenure === 'Landlord'
+      ? res.render('rating-landlord', { certificate, recommendations, ...req.query })
+      : res.render('rating-owner', { certificate, recommendations, ...req.query })
   }).catch(onError(res))
 })
 
 app.get('/rating2/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificateAndRecommendations(certificateHash, req.query.size).then(({ certificate, recommendations }) => {
-    res.render('rating2', { certificate, recommendations, ...req.query })
+    req.query.tenure === 'Landlord'
+      ? res.render('rating-landlord-basic', { certificate, recommendations, ...req.query })
+      : res.render('rating-owner-basic', { certificate, recommendations, ...req.query })
   }).catch(onError(res))
 })
 
@@ -64,11 +68,10 @@ app.get('/whats-next/:recommendationCode', (req, res) => {
   const { recommendationCode } = req.params
   const recommendation = epcRecommendations.getRecommendation(recommendationCode)
   const providers = []
-  fs.createReadStream('./data/stubProviderData.csv')
+  fs.createReadStream('./data/stub-provider-data.csv')
     .pipe(csv())
     .on('data', data => {
-      // console.log({company: data.COMPANY, website: data.WEBSITE, number: data.NUMBER})
-      providers.push({company: data.COMPANY, website: data.WEBSITE, number: data.NUMBER})
+      providers.push({ company: data.COMPANY, website: data.WEBSITE, number: data.NUMBER })
     }).on('end', () => {
       res.render('whats-next', { recommendation, providers })
     })
@@ -86,7 +89,7 @@ app.use(function (error, req, res, next) {
   onError(res)(error)
 })
 
-function onError (res) {
+function onError(res) {
   return error => {
     console.error(error)
     res.status(500).render('error/500')

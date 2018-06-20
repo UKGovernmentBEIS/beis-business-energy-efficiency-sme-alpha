@@ -3,8 +3,8 @@
   <p class="lead">
     {{recommendation.text}}
   </p>
-  <p>Below are local providers that can help with this recommendation.</p>
 </div>
+<p class="table-heading">Below are local providers that can help with this recommendation.</p>
 <table class="table table-hover providers-table">
   <thead>
     <tr>
@@ -17,11 +17,13 @@
     {{#each providers}}
     <tr>
       <td>{{this.company}}</td>
-      <td><a href="http://{{this.website}}" target="_blank">{{this.website}}</a></td>
-      <td>{{this.number}}</td>
+      <td>
+        <a href="http://{{this.website}}" target="_blank">{{this.website}}</a>
+      </td>
+      <td>
+        {{this.number}}
+      </td>
     </tr>
     {{/each}}
   </tbody>
 </table>
-
-

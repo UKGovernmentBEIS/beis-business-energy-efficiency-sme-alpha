@@ -1,0 +1,61 @@
+<h1>Energy Recommendations</h1>
+{{#with certificate}}
+  <div class="address">
+    <div>
+      <h3>{{address}}</h3>
+      <h5>Inspection date: {{inspectionDate}}</h5>
+    </div>
+  </div>
+  {{> rating/compliance-message compliant=compliant tenure=../tenure}}
+  {{#if outOfDate}}
+    <div class="alert alert-warning">
+      <p><strong>📅 This certificate is {{ageInYears}} years old.</strong></p>
+      <p>You may want to consider reassessment, especially if changes have been made to the property since this inspection.</p>
+      <p><a href="https://www.ndepcregister.com/searchAssessor.html" target="_blank">Find an EPC assessor. ⧉</a></p>
+    </div>
+  {{/if}}
+{{/with}}
+{{#if recommendations.length}}
+  <table class="table table-hover recommendations-table">
+    <thead>
+      <tr>
+        <th class="measure-column">Recommended measures</th>
+        <th class="cost-column">Indicative cost</th>
+        <th class="savings-column">Typical savings per year</th>
+        <th class="payback-column">Repays cost in</th>
+        <th class="next-column"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each recommendations}}
+        <tr>
+          <td>
+            <p>{{recommendation}}</p>
+            <p><small><a href="/recommendation/{{recommendationCode}}">Learn more…</a></small></p>
+          </td>
+          <td>
+            {{#if costs}}
+              {{costs.low}} - {{costs.high}}
+            {{/if}}
+          </td>
+          <td>
+            {{#if costs}}
+              {{costs.annualSavings}}
+            {{/if}}
+          </td>
+          <td class="payback payback-{{paybackType}}">{{paybackTypeTitle}}</td>
+          <td><a class="btn btn-info" href="/whats-next/{{recommendationCode}}">What's next?</a></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <div class="actions">
+    <a class="btn btn-secondary" target="_blank" href="/rating/{{certificate.certificateHash}}/recommendations/EPC_{{certificate.lmkKey}}.pdf">
+      🡇 Download as PDF
+    </a>
+  </div>
+{{else}}
+  <p>There are no specific recommendations for this property.</p>
+{{/if}}
+
+<a href="/rating2/{{certificate.certificateHash}}?size={{size}}&tenure={{tenure}}" class="btn btn-danger changeViewButton">Change view</a>
