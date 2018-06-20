@@ -1,5 +1,16 @@
+{{#if isLandlord}}
+<h1>Minimum Energy Efficiency Standards</h1>
+<h5>Regulatory standards have increased for leased properties. Enter your postcode below to
+  <ul>
+    <li>see if you are compliant</li>
+    <li>get recommendations to increase your standard</li>
+  </ul>
+</h5>
+{{else}}
 <h1>Energy Advice Service</h1>
-<h4>Enter your postcode below to receive your energy recommendations</h4>
+<h4>See how you could save money on your energy bills</h4>
+<h4>Enter your postcode below to recieve your recommendations</h4>
+{{/if}}
 <form action="/search">
   <div class="form-group">
     <label for="postcode">Postcode</label>
@@ -13,7 +24,7 @@
   <h4>Properties</h4>
   <div class="results">
     {{#each results}}
-      <a href="/rating/{{certificateHash}}?size={{../size}}&tenure={{../tenure}}" class="btn btn-secondary search-result">{{address}}</a>
+      <a href="/rating2/{{certificateHash}}?size={{../size}}&tenure={{../tenure}}" class="btn btn-secondary search-result">{{address}}</a>
     {{else}}
       <p>There are no non-domestic properties associated with this postcode.</p>
     {{/each}}

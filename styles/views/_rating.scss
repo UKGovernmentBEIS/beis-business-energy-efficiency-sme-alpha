@@ -52,8 +52,7 @@
 
     $columns: (
       measure: 40%,
-      cost: 160px,
-      next: 140px
+      next: 240px
     );
 
     @each $column, $width in $columns {
@@ -64,7 +63,7 @@
   }
 
   .changeViewButton {
-    margin-top: 500px;
+    margin-top: 100vh;
     padding: 40px;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
     font-size: 30px;

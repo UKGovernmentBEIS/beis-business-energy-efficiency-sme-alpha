@@ -55,12 +55,13 @@ app.get('/recommendation/:recommendationCode', (req, res) => {
 
 app.get('/search', (req, res) => {
   const { postcode, ...query } = req.query
+  const isLandlord = req.query.tenure === 'Landlord'
   if (!postcode) {
-    res.render('search', { ...query })
+    res.render('search', { isLandlord, ...query })
     return
   }
   odcApiClient.search(postcode).then(results => {
-    res.render('search', { postcode, results, ...query })
+    res.render('search', { isLandlord, postcode, results, ...query })
   }).catch(onError(res))
 })
 
