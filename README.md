@@ -19,26 +19,26 @@
 
 ### 2. Register for access to the EPC API
 
-Sign up here using your Softwire email address: https://epc.opendatacommunities.org/login
+Sign up for an Open Data Communities account here: https://epc.opendatacommunities.org/login
 
 You should receive an email with your API key, which you will need later.
 
 ### 3. Set up
 
-* Check out the code from Gitlab in to some appropriate location (e.g. `E:\Work`).
+* Check out the code from GitHub.
 ```
 git clone git@github.com:UKGovernmentBEIS/beis-business-energy-efficiency-sme-alpha.git
 ```
 * Install dependencies via Yarn.
 ```
-cd beis-sme-alpha/
+cd beis-business-energy-efficiency-sme-alpha/
 yarn
 ```
-* Create a file named `.env` at the root of the project to store your API credentials (your username and API key from step 2). The contents of the file should look like:
+* Create a file named `.env` at the root of the project to store your API credentials (your username and API key from step 2) and other configuration. The contents of the file should look like:
 ```
-ODC_USERNAME=your.name@softwire.com
-ODC_PASSWORD=yourapikey
-USE_DUMMY_RECOMMENDATIONS=yes
+ODC_USERNAME = your.name@softwire.com
+ODC_PASSWORD = yourapikey
+USE_DUMMY_RECOMMENDATIONS = yes
 ```
 * Run the `start` task to launch the site in development mode.
 ```
