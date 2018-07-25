@@ -38,7 +38,7 @@ class OdcApiClient {
       .catch(error => {
         if (error.name === 'StatusCodeError' && error.response.statusCode === 404) {
           const useDummyRecommendations = (process.env.USE_DUMMY_RECOMMENDATIONS === 'yes')
-          return useDummyRecommendations ? this.getRecommendations('100000220150312070330', assetRatingBand) : []
+          return useDummyRecommendations ? this.getRecommendations('100000220150312070330', assetRatingBand, size) : []
         } else {
           throw error
         }
