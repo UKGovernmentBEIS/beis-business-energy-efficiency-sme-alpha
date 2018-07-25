@@ -31,7 +31,7 @@
 <h4>Properties</h4>
 <div class="results">
   {{#each results}}
-  <a href="/rating2/{{certificateHash}}?size={{../size}}&tenure={{../tenure}}" class="btn btn-secondary search-result">{{address}}</a>
+  <a href="/rating/{{certificateHash}}?size={{../size}}&tenure={{../tenure}}&test=no" class="btn btn-secondary search-result">{{address}}</a>
   {{else}}
   <p>There are no non-domestic properties associated with this postcode.</p>
   {{/each}}

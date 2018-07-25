@@ -1,30 +1,56 @@
-<h1>Energy Recommendations</h1>
+{{#if isLandlord}}
+  <h1>Ways to improve at {{certificate.address}}</h1>
+{{else}}
+  <h1>Opportunities to save at {{certificate.address}}</h1>
+{{/if}}
+
+<div class="epc-heading">
 {{#with certificate}}
-  <div class="address">
-    <div>
-      <h3>{{address}}</h3>
-      <h5>Inspection date: {{inspectionDate}}</h5>
-    </div>
+  <h5>Based on an EPC assessment on your building from {{inspectionDate}}</h5>
+{{/with}}
+{{#if isLandlord}}
+  {{#with certificate}}
     {{> epc-rating-band band=assetRatingBand size=100}}
-  </div>
-  {{> rating/compliance-message compliant=compliant tenure=../tenure}}
+  {{/with}}
+{{/if}}
+</div>
+
+{{> rating/compliance-message compliant=compliant tenure=tenure}}
+
+{{#with certificate}}
   {{#if outOfDate}}
     <div class="alert alert-warning">
-      <p><strong>📅 This certificate is {{ageInYears}} years old.</strong></p>
+      <p>
+        <strong>📅 This certificate is {{ageInYears}} years old.</strong>
+      </p>
       <p>You may want to consider reassessment, especially if changes have been made to the property since this inspection.</p>
-      <p><a href="https://www.ndepcregister.com/searchAssessor.html" target="_blank">Find an EPC assessor. ⧉</a></p>
+      <p>
+        <a href="https://www.ndepcregister.com/searchAssessor.html" target="_blank">Find an EPC assessor. ⧉</a>
+      </p>
     </div>
   {{/if}}
 {{/with}}
+
 {{#if recommendations.length}}
   <table class="table table-hover recommendations-table">
     <thead>
       <tr>
         <th class="measure-column">Recommended measures</th>
-        <th class="cost-column">Indicative cost</th>
-        <th class="savings-column">Typical savings per year</th>
-        <th class="payback-column">Repays cost in</th>
-        <th class="rating-column">Impact on EPC rating</th>
+        {{#if showCost}}
+          <th>Indicative cost</th>
+        {{/if}}
+        {{#if showEpcImpact}}
+          <th>Impact on EPC rating</th>
+        {{/if}}
+        {{#if showSavings}}
+          <th>Typical savings per year</th>
+        {{/if}}
+        {{#if showPayback}}
+          <th>Repays cost in</th>
+        {{/if}}
+        {{#if showCO2Impact}}
+          <th>CO<sub>2</sub> Impact</th>
+        {{/if}}
         <th class="next-column"></th>
       </tr>
     </thead>
@@ -33,25 +59,45 @@
         <tr>
           <td>
             <p>{{recommendation}}</p>
-            <p><small><a href="/recommendation/{{recommendationCode}}">Learn more…</a></small></p>
+            <p>
+              <small>
+                <a href="/recommendation/{{recommendationCode}}">Learn more…</a>
+              </small>
+            </p>
           </td>
+          {{#if ../showCost}}
+            <td>
+              {{#if costs}}
+                {{costs.low}} - {{costs.high}}
+              {{/if}}
+            </td>
+          {{/if}}
+          {{#if ../showEpcImpact}}
+            <td class="co2-impact">
+              {{> epc-rating-band band=bandAfter size=30}}
+              <span class="co2-impact-{{co2Impact}}"></span>
+              <span><small>{{co2Impact}}</small></span>
+            </td>
+          {{/if}}
+          {{#if ../showSavings}}
+            <td>
+              {{#if costs}}
+                {{costs.annualSavings}}
+              {{/if}}
+            </td>
+          {{/if}}
+          {{#if ../showPayback}}
+            <td class="payback payback-{{paybackType}}">{{paybackTypeTitle}}</td>
+          {{/if}}
+          {{#if ../showCO2Impact}}
+            <td class="co2-impact">
+              <span class="co2-impact-{{co2Impact}}"></span>
+              <span><small>{{co2Impact}}</small></span>
+            </td>
+          {{/if}}
           <td>
-            {{#if costs}}
-              {{costs.low}} - {{costs.high}}
-            {{/if}}
+            <a class="btn btn-info" href="/whats-next/{{recommendationCode}}?size={{../size}}&tenure={{../tenure}}">Find a local provider</a>
           </td>
-          <td>
-            {{#if costs}}
-              {{costs.annualSavings}}
-            {{/if}}
-          </td>
-          <td class="payback payback-{{paybackType}}">{{paybackTypeTitle}}</td>
-          <td class="epc-effect">
-            {{> epc-rating-band band=bandAfter size=30}}
-            <div class="co2-impact co2-impact-{{co2Impact}}"></div>
-            <div><small>{{co2Impact}}</small></div>
-          </td>
-          <td><a class="btn btn-info" href="/whats-next/{{recommendationCode}}">What's next?</a></td>
         </tr>
       {{/each}}
     </tbody>
@@ -65,4 +111,11 @@
   <p>There are no specific recommendations for this property.</p>
 {{/if}}
 
-<a href="/rating2/{{certificate.certificateHash}}?size={{size}}&tenure={{tenure}}" class="btn btn-danger changeViewButton">Change view</a>
+<a class="btn btn-danger changeViewButton"
+  href="/rating/{{certificate.certificateHash}}?size={{size}}&tenure={{tenure}}&test={{#if isTest}}no{{else}}yes{{/if}}">
+  {{#if isTest}}
+    Hide test columns
+  {{else}}
+    Show test columns
+  {{/if}}
+</a>

@@ -25,17 +25,17 @@ app.get('/', (req, res) => {
 app.get('/rating/:certificateHash', (req, res) => {
   const { certificateHash } = req.params
   odcApiClient.getCertificateAndRecommendations(certificateHash, req.query.size).then(({ certificate, recommendations }) => {
-    req.query.tenure === 'Landlord'
-      ? res.render('rating-landlord', { certificate, recommendations, ...req.query })
-      : res.render('rating-owner', { certificate, recommendations, ...req.query })
-  }).catch(onError(res))
-})
-
-app.get('/rating2/:certificateHash', (req, res) => {
-  const { certificateHash } = req.params
-  odcApiClient.getCertificateAndRecommendations(certificateHash, req.query.size).then(({ certificate, recommendations }) => {
-    const isLandlord = req.query.tenure === 'Landlord'
-    res.render('rating-basic', { isLandlord, certificate, recommendations, ...req.query })
+    const { tenure, test } = req.query
+    const isLandlord = tenure === 'Landlord'
+    const isTest = test === 'yes'
+    const columnVisibility = {
+      showCost: isTest,
+      showEpcImpact: isTest && isLandlord,
+      showSavings: isTest && !isLandlord,
+      showPayback: !isTest || (isTest && !isLandlord),
+      showCO2Impact: !isTest
+    }
+    res.render('rating', { certificate, recommendations, isLandlord, isTest, ...columnVisibility, ...req.query })
   }).catch(onError(res))
 })
 

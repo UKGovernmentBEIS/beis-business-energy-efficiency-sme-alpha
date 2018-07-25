@@ -1,6 +1,6 @@
 @import '../colors';
 
-.rating-view, .rating-basic-view, .rating-landlord-view, .rating-owner-view, {
+.rating-view {
   .epc-heading {
     display: flex;
     align-items: center;
@@ -31,16 +31,14 @@
     LOW: '⇡'
   );
 
-  .epc-effect {
+  .co2-impact {
     display: flex;
     align-items: center;
-    .co2-impact {
-      @each $tier, $arrow in $co2-impact-tiers {
-        &.co2-impact-#{$tier}::before {
-          margin: 0 5px;
-          font-size: 20px;
-          content: $arrow;
-        }
+    @each $tier, $arrow in $co2-impact-tiers {
+      .co2-impact-#{$tier}::before {
+        margin: 0 5px;
+        font-size: 20px;
+        content: $arrow;
       }
     }
   }
@@ -51,7 +49,7 @@
 
     $columns: (
       measure: 40%,
-      next: 240px
+      next: 200px
     );
 
     @each $column, $width in $columns {
