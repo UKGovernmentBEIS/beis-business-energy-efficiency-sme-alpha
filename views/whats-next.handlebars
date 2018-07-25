@@ -1,10 +1,10 @@
 <h1>Find a Local Provider</h1>
 {{#if isLandlord}}
-<p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help 
-  you get accurate cost information and estimate the impact any changes you make will have on your EPC rating.</p>
+  <p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help
+    you get accurate cost information and estimate the impact any changes you make will have on your EPC rating.</p>
 {{else}}
-<p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help 
-  you get accurate cost information and estimate the impact changes any changes you make will have on your monthly bills!</p>
+  <p class="table-heading">Here’s an accredited list of providers in your local area, they’ll help
+    you get accurate cost information and estimate the impact changes any changes you make will have on your monthly bills!</p>
 {{/if}}
 <div>
   <p class="lead heading">Your recommendation</p>
@@ -24,15 +24,15 @@
   </thead>
   <tbody>
     {{#each providers}}
-    <tr>
-      <td>{{this.company}}</td>
-      <td>
-        <a href="http://{{this.website}}" target="_blank">{{this.website}}</a>
-      </td>
-      <td>
-        {{this.number}}
-      </td>
-    </tr>
+      <tr>
+        <td>{{this.company}}</td>
+        <td>
+          <a href="http://{{this.website}}" target="_blank">{{this.website}}</a>
+        </td>
+        <td>
+          {{this.number}}
+        </td>
+      </tr>
     {{/each}}
   </tbody>
 </table>

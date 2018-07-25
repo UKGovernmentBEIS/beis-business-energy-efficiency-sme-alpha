@@ -1,22 +1,22 @@
 {{#if isLandlord}}
-<h1>Minimum Energy Efficiency Standards</h1>
-<div class="lead">
-  <p>Regulatory standards have increased for the EPC rating of leased properties. Enter your postcode below to:
-    <ul>
-      <li>see if you are compliant</li>
-      <li>get recommendations to increase your EPC rating</li>
-      <li>find local service providers to estimate costs and install recommended energy efficiency measures</li>
-    </ul>
-  </p>
-</div>
+  <h1>Minimum Energy Efficiency Standards</h1>
+  <div class="lead">
+    <p>Regulatory standards have increased for the EPC rating of leased properties. Enter your postcode below to:
+      <ul>
+        <li>see if you are compliant</li>
+        <li>get recommendations to increase your EPC rating</li>
+        <li>find local service providers to estimate costs and install recommended energy efficiency measures</li>
+      </ul>
+    </p>
+  </div>
 {{else}}
-<h1>Energy Advice Service</h1>
-<div class="lead">
-  <p>See how you could save money on your energy bills</p>
-  {{#unless postcode}}
-  <p>Enter your postcode below to recieve your recommendations</p>
-  {{/unless}}
-</div>
+  <h1>Energy Advice Service</h1>
+  <div class="lead">
+    <p>See how you could save money on your energy bills</p>
+    {{#unless postcode}}
+      <p>Enter your postcode below to recieve your recommendations</p>
+    {{/unless}}
+  </div>
 {{/if}}
 <form action="/search">
   <div class="form-group">
@@ -28,12 +28,12 @@
   <button class="btn btn-primary" type="submit">Search</button>
 </form>
 {{#if postcode}}
-<h4>Properties</h4>
-<div class="results">
-  {{#each results}}
-  <a href="/rating/{{certificateHash}}?size={{../size}}&tenure={{../tenure}}&test=no" class="btn btn-secondary search-result">{{address}}</a>
-  {{else}}
-  <p>There are no non-domestic properties associated with this postcode.</p>
-  {{/each}}
-</div>
+  <h4>Properties</h4>
+  <div class="results">
+    {{#each results}}
+      <a href="/rating/{{certificateHash}}?size={{../size}}&tenure={{../tenure}}&test=no" class="btn btn-secondary search-result">{{address}}</a>
+    {{else}}
+      <p>There are no non-domestic properties associated with this postcode.</p>
+    {{/each}}
+  </div>
 {{/if}}

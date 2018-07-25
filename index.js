@@ -41,7 +41,7 @@ app.get('/rating/:certificateHash', (req, res) => {
 
 app.get('/rating/:certificateHash/recommendations/EPC_:lmkKey.pdf', (req, res) => {
   hbs.getTemplate('views/pdf/rating-pdf.handlebars').then(pdfTemplate => {
-    const html = pdfTemplate({ /* context */ })
+    const html = pdfTemplate({})
     pdf.create(html).toStream((e, stream) => stream.pipe(res))
   }).catch(onError(res))
 })
@@ -90,7 +90,7 @@ app.use(function (error, req, res, next) {
   onError(res)(error)
 })
 
-function onError(res) {
+function onError (res) {
   return error => {
     console.error(error)
     res.status(500).render('error/500')
