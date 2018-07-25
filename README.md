@@ -36,8 +36,11 @@ yarn
 ```
 * Create a file named `.env` at the root of the project to store your API credentials (your username and API key from step 2) and other configuration. The contents of the file should look like:
 ```
+# The username and password that you used to register with Open Data Communities in step 2.
 ODC_USERNAME = your.name@softwire.com
 ODC_PASSWORD = yourapikey
+
+# Use dummy recommendations when real ones don't exist for a property.
 USE_DUMMY_RECOMMENDATIONS = yes
 ```
 * Run the `start` task to launch the site in development mode.
@@ -64,3 +67,7 @@ With the site running via `yarn start`, you can debug the Node process by using 
 * Open the debug tab and click the green play button
 
 This will allow you to set breakpoints, etc.
+
+### 5. Deployment
+
+The app is currently deployed to Heroku. Contact Jamie Humphries (jamie.humphries@softwire.com) to be added to the `softwire-beis-sme-alpha` Heroku team.
